@@ -34,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		085FFA4DE7CD3D5042CAA9F5 /* Pods-SGKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SGKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-SGKit/Pods-SGKit.release.xcconfig"; sourceTree = "<group>"; };
+		812049151F9C7DC000892A32 /* UIImage+SGAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SGAddition.h"; sourceTree = "<group>"; };
 		8131EAD71F9AF05000F8818D /* SGKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SGKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8131EADA1F9AF05000F8818D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8131EADB1F9AF05000F8818D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -168,6 +169,7 @@
 				81A4F3171F9C1D520019DC8E /* UIDevice+SGAddition.m */,
 				81A4F31C1F9C1D530019DC8E /* UIFont+SGAddition.h */,
 				81A4F3201F9C1D530019DC8E /* UIFont+SGAddition.m */,
+				812049151F9C7DC000892A32 /* UIImage+SGAddition.h */,
 				81A4F3281F9C1D540019DC8E /* UIImage+SGAddition.m */,
 				81A4F3271F9C1D540019DC8E /* UIImage+RTTint.h */,
 				81A4F3101F9C1D520019DC8E /* UIImage+RTTint.m */,
