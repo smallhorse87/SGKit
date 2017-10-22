@@ -21,5 +21,15 @@
 #define kSGSecondsPerHour 3600.0
 #endif
 
+/*
+ 应用支持的时间范围
+ */
+#ifndef kSGMinDate
+#define kSGMinDate @"2001-01-01"
+#endif
+
+#ifndef kSGMaxDate
+#define kSGMaxDate @"2038-01-01"
+#endif
 
 #endif /* SGKitMarco_h */

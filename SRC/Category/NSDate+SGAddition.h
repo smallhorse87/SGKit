@@ -206,11 +206,10 @@
  */
 + (nullable NSDate *)sg_dateWithISOFormatString:(NSString *)dateString;
 
-//stony
-//+ (nonnull NSDate*)sg_minDate;
-//+ (nonnull NSDate*)sg_maxDate;
-//+ (nonnull NSDate*)sg_endlessDate;
-//- (BOOL)sg_isEndlessDate;
++ (nonnull NSDate*)sg_minDate;
++ (nonnull NSDate*)sg_maxDate;
++ (nonnull NSDate*)sg_endlessDate;
+- (BOOL)sg_isEndlessDate;
 
 + (NSInteger)sg_elapsedDaysOfThisMonth:(NSDate*)toDate from:(NSDate*)fromDate;
 + (NSInteger)sg_elapsedDaysOfThisWeek:(NSDate*)toDate from:(NSDate*)fromDate;

@@ -10,6 +10,8 @@
 
 #import <time.h>
 
+#import "SGKitMarco.h"
+
 static NSDictionary *standardStrToDateDic = nil;
 
 @implementation NSDate (SGAddition)
@@ -740,28 +742,27 @@ static NSDictionary *standardStrToDateDic = nil;
     return [formatter dateFromString:dateString];
 }
 
-//stony
-//+ (NSDate*)minDate
-//{
-//    return [self dateWithStandardString:kMinDate];
-//}
-//
-//+ (NSDate*)maxDate
-//{
-//    return [self dateWithStandardString:kMaxDate];
-//}
-//
-//+ (NSDate*)endlessDate
-//{
-//    return [[self dateWithStandardString:kMaxDate] dateByAddingDays:1];
-//}
-//- (BOOL)sg_isEndlessDate
-//{
-//    if([self sg_isSameDay:[NSDate sg_endlessDate]])
-//        return YES;
-//    else
-//        return NO;
-//}
++ (NSDate*)sg_minDate
+{
+    return [self sg_dateWithStandardString:kSGMinDate];
+}
+
++ (NSDate*)sg_maxDate
+{
+    return [self sg_dateWithStandardString:kSGMaxDate];
+}
+
++ (NSDate*)sg_endlessDate
+{
+    return [[self sg_dateWithStandardString:kSGMaxDate] sg_dateByAddingDays:1];
+}
+- (BOOL)sg_isEndlessDate
+{
+    if([self sg_isSameDay:[NSDate sg_endlessDate]])
+        return YES;
+    else
+        return NO;
+}
 
 + (NSString*)sg_displayXValue:(NSString*)periodStart repeatMode:(NSInteger)mode
 {
