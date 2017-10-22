@@ -10,19 +10,19 @@
 
 @interface UIButton (SGAddition)
 
-- (void)setLocalizedTitle:(NSString*)title;
+- (void)sg_setLocalizedTitle:(NSString*)title;
 
-- (void)cxs_bgImageForAllState:(UIImage*)img;
-- (void)cxs_imageForAllState:(UIImage*)img;
-- (void)cxs_titleColorForAllState:(UIColor *)color;
-- (void)cxs_titleForAllState:(NSString *)title;
+- (void)sg_bgImageForAllState:(UIImage*)img;
+- (void)sg_imageForAllState:(UIImage*)img;
+- (void)sg_titleColorForAllState:(UIColor *)color;
+- (void)sg_titleForAllState:(NSString *)title;
 
--(void)addClickAction:(SEL)action target:(id)owner;
+-(void)sg_addClickAction:(SEL)action target:(id)owner;
 
-- (void)setStyleRound:(CGFloat)radius
-          normalColor:(UIColor *)nColor
-       highlightColor:(UIColor *)hColor
-         disableColor:(UIColor *)dColor
-          borderColor:(UIColor *)bColor;
+- (void)sg_setStyleRound:(CGFloat)radius
+             normalColor:(UIColor *)nColor
+          highlightColor:(UIColor *)hColor
+            disableColor:(UIColor *)dColor
+             borderColor:(UIColor *)bColor;
 
 @end

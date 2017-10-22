@@ -10,14 +10,14 @@
 
 @implementation UITableViewCell (SGAddition)
 
-+ (UITableViewCell*)buildSeparatorCell
++ (UITableViewCell*)sg_buildSeparatorCell
 {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     
     cell.selectionStyle  = UITableViewCellSelectionStyleNone;
     //cell.backgroundColor = kColorBgPage;//stony debug
 
-    [cell cxs_noSeparator];
+    [cell sg_noSeparator];
     
     return cell;
 }
@@ -28,12 +28,12 @@
 //    [self cxs_separatorInset:kScreenWidth];
 //}
 
-- (void)cxs_separatorInsetBothSide
+- (void)sg_separatorInsetBothSide
 {
-    [self cxs_separatorInset:15 andRight:15];
+    [self sg_separatorInset:15 andRight:15];
 }
 
-- (void)cxs_separatorInset:(CGFloat)left andRight:(CGFloat)right
+- (void)sg_separatorInset:(CGFloat)left andRight:(CGFloat)right
 {
     if ([self respondsToSelector:@selector(setLayoutMargins:)]) {
         [self setLayoutMargins:UIEdgeInsetsMake(0,0,0,0)];
@@ -44,34 +44,34 @@
     }
 }
 
-- (void)cxs_separatorZeroInset
+- (void)sg_separatorZeroInset
 {
-    [self cxs_separatorInset:0.0];
+    [self sg_separatorInset:0.0];
 }
 
-- (void)cxs_separatorInset08
+- (void)sg_separatorInset08
 {
-    [self cxs_separatorInset:8.0];
+    [self sg_separatorInset:8.0];
 }
 
-- (void)cxs_separatorInset10
+- (void)sg_separatorInset10
 {
-    [self cxs_separatorInset:10.0];
+    [self sg_separatorInset:10.0];
 }
 
-- (void)cxs_separatorInset12
+- (void)sg_separatorInset12
 {
-    [self cxs_separatorInset:12.0];
+    [self sg_separatorInset:12.0];
 }
 
-- (void)cxs_separatorInset15
+- (void)sg_separatorInset15
 {
-    [self cxs_separatorInset:15.0];
+    [self sg_separatorInset:15.0];
 }
 
 #pragma mark - utility
 
-- (void)cxs_separatorInset:(CGFloat)inset
+- (void)sg_separatorInset:(CGFloat)inset
 {
     if ([self respondsToSelector:@selector(setLayoutMargins:)]) {
         [self setLayoutMargins:UIEdgeInsetsMake(0,0,0,0)];

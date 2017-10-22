@@ -15,27 +15,27 @@
 
 @interface NSString (SGAddition)
 
-- (NSString *)extensionOfFile;
-- (NSString *)nameOfFile;
+- (NSString *)sg_extensionOfFile;
+- (NSString *)sg_nameOfFile;
 
-+ (BOOL)isEmpty:(NSString*)str;
++ (BOOL)sg_isEmpty:(NSString*)str;
 
-+ (NSString *)DurationInStr:(NSInteger)timeInterval;
++ (NSString *)sg_durationInStr:(NSInteger)timeInterval;
 
-- (NSString*)limitWithLength:(NSInteger)len;
+- (NSString*)sg_limitWithLength:(NSInteger)len;
 
-+ (NSMutableAttributedString*)buildDialogPomoCntAttributeString:(NSInteger)pomoCnt;
++ (NSMutableAttributedString*)sg_buildDialogPomoCntAttributeString:(NSInteger)pomoCnt;
 
-+ (NSMutableAttributedString*)buildActiveDaysAttributeString:(NSInteger)days fontWeight:(CGFloat)weight;
-+ (NSMutableAttributedString*)buildConsumedTimeAttributeString:(NSInteger)timeInterval fontWeight:(CGFloat)weight;
-+ (NSMutableAttributedString*)buildCompletedAssignmentAttributeString:(NSInteger)completedCnt fontWeight:(CGFloat)weight;
++ (NSMutableAttributedString*)sg_buildActiveDaysAttributeString:(NSInteger)days fontWeight:(CGFloat)weight;
++ (NSMutableAttributedString*)sg_buildConsumedTimeAttributeString:(NSInteger)timeInterval fontWeight:(CGFloat)weight;
++ (NSMutableAttributedString*)sg_buildCompletedAssignmentAttributeString:(NSInteger)completedCnt fontWeight:(CGFloat)weight;
 
-- (NSString *)stringByTrim;
-- (NSString*) trimWhitespace;
+- (NSString *)sg_stringByTrim;
+- (NSString*) sg_trimWhitespace;
 
-+ (NSString*)displayInHour:(CGFloat)seconds;
-+ (NSString*)displayShortFloat:(CGFloat)floatNum;
++ (NSString*)sg_displayInHour:(CGFloat)seconds;
++ (NSString*)sg_displayShortFloat:(CGFloat)floatNum;
 
-+ (NSString*)inspiration:(CGFloat)focusTime;
++ (NSString*)sg_inspiration:(CGFloat)focusTime;
 
 @end

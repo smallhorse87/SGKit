@@ -10,6 +10,6 @@
 
 @interface NSNumber (SGAddition)
 
-+ (NSNumber *)numberWithString:(NSString *)string;
++ (NSNumber *)sg_numberWithString:(NSString *)string;
 
 @end

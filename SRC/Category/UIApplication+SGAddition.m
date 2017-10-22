@@ -11,19 +11,19 @@
 @implementation UIApplication (SGAddition)
 
 
-- (NSString *)appBundleName {
+- (NSString *)sg_appBundleName {
     return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
 }
 
-- (NSString *)appBundleID {
+- (NSString *)sg_appBundleID {
     return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"];
 }
 
-- (NSString *)appVersion {
+- (NSString *)sg_appVersion {
     return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
 }
 
-- (NSString *)appBuildVersion {
+- (NSString *)sg_appBuildVersion {
     return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
 }
 

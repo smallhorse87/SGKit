@@ -12,8 +12,8 @@
 
 @implementation NSNumber (SGAddition)
 
-+ (NSNumber *)numberWithString:(NSString *)string {
-    NSString *str = [[string stringByTrim] lowercaseString];
++ (NSNumber *)sg_numberWithString:(NSString *)string {
+    NSString *str = [[string sg_stringByTrim] lowercaseString];
     if (!str || !str.length) {
         return nil;
     }

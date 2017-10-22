@@ -17,7 +17,7 @@
 
 @implementation UIImage (SGAddition)
 
-+ (UIImage *)withObject:(id)obj
++ (UIImage *)sg_withObject:(id)obj
 {
     if([obj isKindOfClass:[NSString class]])
     {
@@ -37,21 +37,21 @@
     return nil;
 }
 
-- (UIImage *)imageByRoundCornerRadius:(CGFloat)radius {
-    return [self imageByRoundCornerRadius:radius borderWidth:0 borderColor:nil];
+- (UIImage *)sg_imageByRoundCornerRadius:(CGFloat)radius {
+    return [self sg_imageByRoundCornerRadius:radius borderWidth:0 borderColor:nil];
 }
 
-- (UIImage *)imageByRoundCornerRadius:(CGFloat)radius
+- (UIImage *)sg_imageByRoundCornerRadius:(CGFloat)radius
                           borderWidth:(CGFloat)borderWidth
                           borderColor:(UIColor *)borderColor {
-    return [self imageByRoundCornerRadius:radius
+    return [self sg_imageByRoundCornerRadius:radius
                                   corners:UIRectCornerAllCorners
                               borderWidth:borderWidth
                               borderColor:borderColor
                            borderLineJoin:kCGLineJoinMiter];
 }
 
-- (UIImage *)imageByRoundCornerRadius:(CGFloat)radius
+- (UIImage *)sg_imageByRoundCornerRadius:(CGFloat)radius
                               corners:(UIRectCorner)corners
                           borderWidth:(CGFloat)borderWidth
                           borderColor:(UIColor *)borderColor
@@ -102,7 +102,7 @@
 }
 
 
-- (UIImage *)imageByScale{
+- (UIImage *)sg_imageByScale{
     CGFloat targetWidth = 160.0;
     
     CGFloat targetHeight = targetWidth*self.size.height/self.size.width;
@@ -116,14 +116,14 @@
     return image;
 }
 
-+ (UIImage *)roundImageWithRadius:(CGFloat)radius
++ (UIImage *)sg_roundImageWithRadius:(CGFloat)radius
                         fillColor:(UIColor *)color
                       borderColor:(UIColor *)bdcolor
 {
-    return [UIImage roundImageWithRadius:radius fillColor:color borderWidth:1 borderColor:bdcolor];
+    return [UIImage sg_roundImageWithRadius:radius fillColor:color borderWidth:1 borderColor:bdcolor];
 }
 
-+ (UIImage *)roundImageWithRadius:(CGFloat)radius
++ (UIImage *)sg_roundImageWithRadius:(CGFloat)radius
                         fillColor:(UIColor *)color
                       borderWidth:(CGFloat)borderWidth
                       borderColor:(UIColor *)borderColor
@@ -139,28 +139,28 @@
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    image = [image imageByRoundCornerRadius:radius borderWidth:borderWidth borderColor:borderColor];
+    image = [image sg_imageByRoundCornerRadius:radius borderWidth:borderWidth borderColor:borderColor];
     
-    image = [image resizeByLeftCap:0.5f andTopCap:0.5f];
+    image = [image sg_resizeByLeftCap:0.5f andTopCap:0.5f];
     
     return image;
 }
 
--(UIImage *)resizeByLeftCap:(CGFloat)leftCap andTopCap:(CGFloat)topCap{
+-(UIImage *)sg_resizeByLeftCap:(CGFloat)leftCap andTopCap:(CGFloat)topCap{
     
     return [self stretchableImageWithLeftCapWidth:self.size.width * leftCap topCapHeight:self.size.height * topCap];
 }
 
-- (UIImage *)imageByResizeToSize:(CGSize)size contentMode:(UIViewContentMode)contentMode {
+- (UIImage *)sg_imageByResizeToSize:(CGSize)size contentMode:(UIViewContentMode)contentMode {
     if (size.width <= 0 || size.height <= 0) return nil;
     UIGraphicsBeginImageContextWithOptions(size, NO, self.scale);
-    [self drawInRect:CGRectMake(0, 0, size.width, size.height) withContentMode:contentMode clipsToBounds:NO];
+    [self sg_drawInRect:CGRectMake(0, 0, size.width, size.height) withContentMode:contentMode clipsToBounds:NO];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
 }
 
-- (void)drawInRect:(CGRect)rect withContentMode:(UIViewContentMode)contentMode clipsToBounds:(BOOL)clips{
+- (void)sg_drawInRect:(CGRect)rect withContentMode:(UIViewContentMode)contentMode clipsToBounds:(BOOL)clips{
     CGRect drawRect = YYCGRectFitWithContentMode(rect, self.size, contentMode);
     if (drawRect.size.width == 0 || drawRect.size.height == 0) return;
     if (clips) {
@@ -257,7 +257,7 @@ CGRect YYCGRectFitWithContentMode(CGRect rect, CGSize size, UIViewContentMode mo
     return rect;
 }
 
-- (NSData *)imageByScalingToWithSize:(CGFloat)len
+- (NSData *)sg_imageByScalingToWithSize:(CGFloat)len
 {
     if (self.size.width <= len && self.size.height <= len)
         return UIImageJPEGRepresentation(self, (CGFloat)0.9);
@@ -273,11 +273,11 @@ CGRect YYCGRectFitWithContentMode(CGRect rect, CGSize size, UIViewContentMode mo
     }
     CGSize targetSize = CGSizeMake(btWidth, btHeight);
     return UIImageJPEGRepresentation(
-                                     [self imageByScalingAndCroppingWithSize:targetSize],
+                                     [self sg_imageByScalingAndCroppingWithSize:targetSize],
                                      (CGFloat)0.9);
 }
 
-- (UIImage *)imageByScalingAndCroppingWithSize:(CGSize)targetSize
+- (UIImage *)sg_imageByScalingAndCroppingWithSize:(CGSize)targetSize
 {
     UIImage *newImage = nil;
     CGSize imageSize = self.size;

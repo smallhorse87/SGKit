@@ -50,7 +50,7 @@ static BOOL hexStrToRGBA(NSString *str,
     return YES;
 }
 
-+ (instancetype)colorWithHexString:(NSString *)hexStr {
++ (instancetype)sg_colorWithHexString:(NSString *)hexStr {
     CGFloat r, g, b, a;
     if (hexStrToRGBA(hexStr, &r, &g, &b, &a)) {
         return [UIColor colorWithRed:r green:g blue:b alpha:a];
@@ -58,7 +58,7 @@ static BOOL hexStrToRGBA(NSString *str,
     return nil;
 }
 
-- (UIColor*)adjustBright:(CGFloat)adjustPercent
+- (UIColor*)sg_adjustBright:(CGFloat)adjustPercent
 {
     CGFloat h,s,b;
     

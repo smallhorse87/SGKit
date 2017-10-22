@@ -10,8 +10,8 @@
 
 @interface UIColor (SGAddition)
 
-+ (instancetype)colorWithHexString:(NSString *)hexStr;
++ (instancetype)sg_colorWithHexString:(NSString *)hexStr;
 
-- (UIColor*)adjustBright:(CGFloat)adjustPercent;
+- (UIColor*)sg_adjustBright:(CGFloat)adjustPercent;
 
 @end

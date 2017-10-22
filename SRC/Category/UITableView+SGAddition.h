@@ -10,10 +10,10 @@
 
 @interface UITableView (SGAddition)
 
-- (void)reloadRow:(NSUInteger)row inSection:(NSUInteger)section withRowAnimation:(UITableViewRowAnimation)animation;
+- (void)sg_reloadRow:(NSUInteger)row inSection:(NSUInteger)section withRowAnimation:(UITableViewRowAnimation)animation;
 
-- (void)cxs_noSeparator;
+- (void)sg_noSeparator;
 
-- (void)cxs_disableFollowReadableWidth;
+- (void)sg_disableFollowReadableWidth;
 
 @end

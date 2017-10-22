@@ -10,13 +10,13 @@
 
 @interface UITableViewCell (SGAddition)
 
-- (void)cxs_noSeparator;
-- (void)cxs_separatorZeroInset;
-- (void)cxs_separatorInset08;
-- (void)cxs_separatorInset10;
-- (void)cxs_separatorInset12;
-- (void)cxs_separatorInset15;
-- (void)cxs_separatorInsetBothSide;
+- (void)sg_noSeparator;
+- (void)sg_separatorZeroInset;
+- (void)sg_separatorInset08;
+- (void)sg_separatorInset10;
+- (void)sg_separatorInset12;
+- (void)sg_separatorInset15;
+- (void)sg_separatorInsetBothSide;
 
 + (UITableViewCell*)buildSeparatorCell;
 

@@ -10,9 +10,9 @@
 
 @interface UIApplication (SGAddition)
 
-- (NSString *)appBundleName;
-- (NSString *)appBundleID;
-- (NSString *)appVersion;
-- (NSString *)appBuildVersion;
+- (NSString *)sg_appBundleName;
+- (NSString *)sg_appBundleID;
+- (NSString *)sg_appVersion;
+- (NSString *)sg_appBuildVersion;
 
 @end

@@ -10,6 +10,6 @@
 
 @interface NSURL (SGAddition)
 
-+ (NSURL*) imgUrl:(NSString*)str;
++ (NSURL*) sg_imgUrl:(NSString*)str;
 
 @end

@@ -11,7 +11,7 @@
 @interface UIImage (SGAddition)
 
 
-+ (UIImage *)roundImageWithRadius:(CGFloat)radius
++ (UIImage *)sg_roundImageWithRadius:(CGFloat)radius
                         fillColor:(UIColor *)color
                       borderColor:(UIColor *)bdcolor;
 
@@ -22,7 +22,7 @@
  rectangle's width or height are clamped appropriately to half
  the width or height.
  */
-- (nullable UIImage *)imageByRoundCornerRadius:(CGFloat)radius;
+- (nullable UIImage *)sg_imageByRoundCornerRadius:(CGFloat)radius;
 
 /**
  Rounds a new image with a given corner size.
@@ -37,13 +37,13 @@
  
  @param borderColor  The border stroke color. nil means clear color.
  */
-- (nullable UIImage *)imageByRoundCornerRadius:(CGFloat)radius
+- (nullable UIImage *)sg_imageByRoundCornerRadius:(CGFloat)radius
                                    borderWidth:(CGFloat)borderWidth
                                    borderColor:(nullable UIColor *)borderColor;
 
-- (UIImage *)imageByScale;
+- (UIImage *)sg_imageByScale;
 
-- (UIImage *)imageByResizeToSize:(CGSize)size contentMode:(UIViewContentMode)contentMode;
+- (UIImage *)sg_imageByResizeToSize:(CGSize)size contentMode:(UIViewContentMode)contentMode;
 
-- (NSData *)imageByScalingToWithSize:(CGFloat)len;
+- (NSData *)sg_imageByScalingToWithSize:(CGFloat)len;
 @end

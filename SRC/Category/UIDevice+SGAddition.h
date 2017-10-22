@@ -10,17 +10,17 @@
 
 @interface UIDevice (SGAddition)
 
-+(BOOL) cameraSupportsMedia:(NSString *)paramMediaType sourceType:(UIImagePickerControllerSourceType)paramSourceType;
-+(BOOL) isCameraAvailable;
-+(BOOL) isRearCameraAvailable;
-+(BOOL) isFrontCameraAvailable;
-+(BOOL) doesCameraSupportTakingPhotos;
-+(BOOL) isPhotoLibraryAvailable;
-+(BOOL) canUserPickVideosFromPhotoLibrary;
-+(BOOL) canUserPickPhotosFromPhotoLibrary;
++(BOOL) sg_cameraSupportsMedia:(NSString *)paramMediaType sourceType:(UIImagePickerControllerSourceType)paramSourceType;
++(BOOL) sg_isCameraAvailable;
++(BOOL) sg_isRearCameraAvailable;
++(BOOL) sg_isFrontCameraAvailable;
++(BOOL) sg_doesCameraSupportTakingPhotos;
++(BOOL) sg_isPhotoLibraryAvailable;
++(BOOL) sg_canUserPickVideosFromPhotoLibrary;
++(BOOL) sg_canUserPickPhotosFromPhotoLibrary;
 
 
-- (NSString *)machineModelName;
-- (NSString *)machineModel;
-+ (double)systemVersion;
+- (NSString *)sg_machineModelName;
+- (NSString *)sg_machineModel;
++ (double)sg_systemVersion;
 @end

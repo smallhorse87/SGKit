@@ -13,12 +13,12 @@
 @implementation NSString (SGAddition)
 
 
-- (NSString*) trimWhitespace
+- (NSString*) sg_trimWhitespace
 {
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 }
 
-- (NSString *)extensionOfFile
+- (NSString *)sg_extensionOfFile
 {
     NSArray *splitStrArr = [self componentsSeparatedByString:@"."];
     
@@ -28,7 +28,7 @@
         return nil;
 }
 
-- (NSString *)nameOfFile
+- (NSString *)sg_nameOfFile
 {
     NSArray *splitStrArr = [self componentsSeparatedByString:@"."];
     
@@ -38,17 +38,17 @@
         return nil;
 }
 
-- (NSString *)stringByTrim {
+- (NSString *)sg_stringByTrim {
     NSCharacterSet *set = [NSCharacterSet whitespaceAndNewlineCharacterSet];
     return [self stringByTrimmingCharactersInSet:set];
 }
 
-+ (BOOL)isEmpty:(NSString*)str
++ (BOOL)sg_isEmpty:(NSString*)str
 {
     if(str == nil)
         return YES;
     
-    NSString *trimStr = [str stringByTrim];
+    NSString *trimStr = [str sg_stringByTrim];
     
     if (trimStr.length == 0) {
         return YES;
@@ -57,7 +57,7 @@
     return NO;
 }
 
-- (NSString*)limitWithLength:(NSInteger)len
+- (NSString*)sg_limitWithLength:(NSInteger)len
 {
     if (self.length <= len) {
         return self;
@@ -66,7 +66,7 @@
     return [self substringWithRange:NSMakeRange(0, len)];
 }
 
-+ (NSString *)DurationInStr:(NSInteger)timeInterval
++ (NSString *)sg_durationInStr:(NSInteger)timeInterval
 {
     NSInteger mintues = timeInterval / 60;
     
@@ -158,7 +158,7 @@
 //    return [hourStr stringByAppendingString:@"h"];
 //}
 
-+ (NSString*)displayShortFloat:(CGFloat)floatNum
++ (NSString*)sg_displayShortFloat:(CGFloat)floatNum
 {
     NSString *floatStr = [NSString stringWithFormat:@"%.1lf",floatNum];
     

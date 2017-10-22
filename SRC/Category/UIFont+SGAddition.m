@@ -16,19 +16,19 @@
 //PingFangSC-Thin 纤细
 //PingFangSC-Ultralight 及细体
 
-- (CGFontRef)yc_FontRef
+- (CGFontRef)sg_FontRef
 {
     CFStringRef fontName = (__bridge CFStringRef)self.fontName;
 
     return CGFontCreateWithFontName(fontName);
 }
 
-+ (UIFont*)yc_Pingfang:(CGFloat)size
++ (UIFont*)sg_Pingfang:(CGFloat)size
 {
-    return [UIFont yc_Pingfang:size weight:UIFontWeightRegular];
+    return [UIFont sg_Pingfang:size weight:UIFontWeightRegular];
 }
 
-+ (UIFont*)yc_Pingfang:(CGFloat)size weight:(CGFloat)weigth
++ (UIFont*)sg_Pingfang:(CGFloat)size weight:(CGFloat)weigth
 {
     NSString *fontName = nil;
     

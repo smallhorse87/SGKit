@@ -15,7 +15,7 @@
 
 @implementation UIDevice (SGAddition)
 
-+ (double)systemVersion {
++ (double)sg_systemVersion {
     static double version;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -24,7 +24,7 @@
     return version;
 }
 
-- (NSString *)machineModel {
+- (NSString *)sg_machineModel {
     static dispatch_once_t one;
     static NSString *model;
     dispatch_once(&one, ^{
@@ -38,11 +38,11 @@
     return model;
 }
 
-- (NSString *)machineModelName {
+- (NSString *)sg_machineModelName {
     static dispatch_once_t one;
     static NSString *name;
     dispatch_once(&one, ^{
-        NSString *model = [self machineModel];
+        NSString *model = [self sg_machineModel];
         if (!model) return;
         NSDictionary *dic = @{
                               @"Watch1,1" : @"Apple Watch 38mm",
@@ -129,7 +129,7 @@
 }
 
 #pragma mark camera utility
-+(BOOL) cameraSupportsMedia:(NSString *)paramMediaType sourceType:(UIImagePickerControllerSourceType)paramSourceType{
++(BOOL) sg_cameraSupportsMedia:(NSString *)paramMediaType sourceType:(UIImagePickerControllerSourceType)paramSourceType{
     __block BOOL result = NO;
     if ([paramMediaType length] == 0) {
         return NO;
@@ -145,35 +145,35 @@
     return result;
 }
 
-+(BOOL) isCameraAvailable{
++(BOOL) sg_isCameraAvailable{
     return [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
 }
 
-+(BOOL) isRearCameraAvailable{
++(BOOL) sg_isRearCameraAvailable{
     return [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear];
 }
 
-+ (BOOL) isFrontCameraAvailable {
++ (BOOL) sg_isFrontCameraAvailable {
     return [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront];
 }
 
-+(BOOL) doesCameraSupportTakingPhotos {
-    return [self cameraSupportsMedia:(__bridge NSString *)kUTTypeImage sourceType:UIImagePickerControllerSourceTypeCamera];
++(BOOL) sg_doesCameraSupportTakingPhotos {
+    return [self sg_cameraSupportsMedia:(__bridge NSString *)kUTTypeImage sourceType:UIImagePickerControllerSourceTypeCamera];
 }
 
-+(BOOL) isPhotoLibraryAvailable{
++(BOOL) sg_isPhotoLibraryAvailable{
     return [UIImagePickerController isSourceTypeAvailable:
             UIImagePickerControllerSourceTypePhotoLibrary];
 }
 
-+(BOOL) canUserPickVideosFromPhotoLibrary{
++(BOOL) sg_canUserPickVideosFromPhotoLibrary{
     return [self
-            cameraSupportsMedia:(__bridge NSString *)kUTTypeMovie sourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+            sg_cameraSupportsMedia:(__bridge NSString *)kUTTypeMovie sourceType:UIImagePickerControllerSourceTypePhotoLibrary];
 }
 
-+(BOOL) canUserPickPhotosFromPhotoLibrary{
++(BOOL) sg_canUserPickPhotosFromPhotoLibrary{
     return [self
-            cameraSupportsMedia:(__bridge NSString *)kUTTypeImage sourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+            sg_cameraSupportsMedia:(__bridge NSString *)kUTTypeImage sourceType:UIImagePickerControllerSourceTypePhotoLibrary];
 }
 
 @end

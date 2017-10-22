@@ -10,9 +10,9 @@
 
 @interface UIFont (SGAddition)
 
-+ (UIFont*)yc_Pingfang:(CGFloat)size;
-+ (UIFont*)yc_Pingfang:(CGFloat)size weight:(CGFloat)weigth;
++ (UIFont*)sg_Pingfang:(CGFloat)size;
++ (UIFont*)sg_Pingfang:(CGFloat)size weight:(CGFloat)weigth;
 
-- (CGFontRef)yc_FontRef;
+- (CGFontRef)sg_FontRef;
 
 @end
