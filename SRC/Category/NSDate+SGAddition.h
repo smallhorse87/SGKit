@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSDate (CXSAdded)
+@interface NSDate (SGAddition)
 
 - (NSString *)dayRangeStart;
 - (NSString *)weekRangeStart;

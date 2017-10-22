@@ -6,16 +6,16 @@
 //  Copyright © 2016年 微加科技. All rights reserved.
 //
 
-#import "UIImage+CXSAdded.h"
+#import "UIImage+SGAddition.h"
 
 #import <ImageIO/ImageIO.h>
 #import <Accelerate/Accelerate.h>
 #import <CoreText/CoreText.h>
 #import <objc/runtime.h>
 
-#import "UIDevice+CXSAdded.h"
+#import "UIDevice+SGAddition.h"
 
-@implementation UIImage (CXSAdded)
+@implementation UIImage (SGAddition)
 
 + (UIImage *)withObject:(id)obj
 {

@@ -6,14 +6,14 @@
 //  Copyright © 2016年 chen xiaosong. All rights reserved.
 //
 
-#import "UIDevice+CXSAdded.h"
+#import "UIDevice+SGAddition.h"
 
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 
 #include <sys/sysctl.h>
 
-@implementation UIDevice (CXSAdded)
+@implementation UIDevice (SGAddition)
 
 + (double)systemVersion {
     static double version;

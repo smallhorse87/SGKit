@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIApplication (CXSAdded)
+@interface UIApplication (SGAddition)
 
 - (NSString *)appBundleName;
 - (NSString *)appBundleID;

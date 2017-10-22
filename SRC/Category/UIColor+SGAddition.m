@@ -6,9 +6,9 @@
 //  Copyright © 2016年 chen xiaosong. All rights reserved.
 //
 
-#import "UIColor+CXSAdded.h"
+#import "UIColor+SGAddition.h"
 
-@implementation UIColor (CXSAdded)
+@implementation UIColor (SGAddition)
 
 static inline NSUInteger hexStrToInt(NSString *str) {
     uint32_t result = 0;

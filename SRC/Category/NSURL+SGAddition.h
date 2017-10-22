@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSURL (CXSAdd)
+@interface NSURL (SGAddition)
 
 + (NSURL*) imgUrl:(NSString*)str;
 

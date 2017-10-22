@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImage (CXSAdded)
+@interface UIImage (SGAddition)
 
 
 + (UIImage *)roundImageWithRadius:(CGFloat)radius

@@ -6,11 +6,11 @@
 //  Copyright © 2016年 微加科技. All rights reserved.
 //
 
-#import "NSString+CXSAdded.h"
+#import "NSString+SGAddition.h"
 
-#import "UIColor+CXSAdded.h"
+#import "UIColor+SGAddition.h"
 
-@implementation NSString (CXSAdded)
+@implementation NSString (SGAddition)
 
 
 - (NSString*) trimWhitespace

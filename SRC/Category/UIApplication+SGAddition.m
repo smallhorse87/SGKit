@@ -6,9 +6,9 @@
 //  Copyright © 2016年 chen xiaosong. All rights reserved.
 //
 
-#import "UIApplication+CXSAdded.h"
+#import "UIApplication+SGAddition.h"
 
-@implementation UIApplication (CXSAdded)
+@implementation UIApplication (SGAddition)
 
 
 - (NSString *)appBundleName {

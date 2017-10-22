@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIFont (CXSAdd)
+@interface UIFont (SGAddition)
 
 + (UIFont*)yc_Pingfang:(CGFloat)size;
 + (UIFont*)yc_Pingfang:(CGFloat)size weight:(CGFloat)weigth;

@@ -13,7 +13,7 @@
 
 #define isEmptyString(string) (string == nil || string.length == 0)
 
-@interface NSString (CXSAdded)
+@interface NSString (SGAddition)
 
 - (NSString *)extensionOfFile;
 - (NSString *)nameOfFile;

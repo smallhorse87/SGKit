@@ -6,11 +6,11 @@
 //  Copyright © 2016年 chen xiaosong. All rights reserved.
 //
 
-#import "NSNumber+CXSAdded.h"
+#import "NSNumber+SGAddition.h"
 
-#import "NSString+CXSAdded.h"
+#import "NSString+SGAddition.h"
 
-@implementation NSNumber (CXSAdded)
+@implementation NSNumber (SGAddition)
 
 + (NSNumber *)numberWithString:(NSString *)string {
     NSString *str = [[string stringByTrim] lowercaseString];

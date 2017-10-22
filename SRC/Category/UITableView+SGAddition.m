@@ -6,9 +6,9 @@
 //  Copyright © 2016年 chen xiaosong. All rights reserved.
 //
 
-#import "UITableView+CXSAdded.h"
+#import "UITableView+SGAddition.h"
 
-@implementation UITableView (CXSAdded)
+@implementation UITableView (SGAddition)
 
 - (void)reloadRowAtIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)animation {
     [self reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:animation];

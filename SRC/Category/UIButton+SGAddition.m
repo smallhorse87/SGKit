@@ -6,12 +6,12 @@
 //  Copyright © 2017年 chen xiaosong. All rights reserved.
 //
 
-#import "UIButton+CXSAdded.h"
+#import "UIButton+SGAddition.h"
 
-#import "UIImage+CXSAdded.h"
-#import "UIColor+CXSAdded.h"
+#import "UIImage+SGAddition.h"
+#import "UIColor+SGAddition.h"
 
-@implementation UIButton (CXSAdded)
+@implementation UIButton (SGAddition)
 
 - (void)setLocalizedTitle:(NSString*)title
 {

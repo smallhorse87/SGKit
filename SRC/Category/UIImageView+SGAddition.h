@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImageView (CXSAdd)
+@interface UIImageView (SGAddition)
 
 - (void)withObject:(id)obj andDefaultImg:(NSString*)defaultImg sucBlock:(void (^)())sucBlock;
 

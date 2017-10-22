@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UITableViewCell (CXSAdded)
+@interface UITableViewCell (SGAddition)
 
 - (void)cxs_noSeparator;
 - (void)cxs_separatorZeroInset;

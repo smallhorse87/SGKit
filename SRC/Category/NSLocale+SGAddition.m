@@ -6,7 +6,7 @@
 //  Copyright © 2017年 chen xiaosong. All rights reserved.
 //
 
-#import "NSLocale+CXSAdded.h"
+#import "NSLocale+SGAddition.h"
 
 NSString *const notiStrictWarning = @"strict mode warning";
 NSString *const notiStrictFailed  = @"strict mode failed";
@@ -14,7 +14,7 @@ NSString *const notiTaskReminder  = @"task reminder";
 NSString *const notiFocusEnd      = @"focus end";
 NSString *const notiBreakEnd      = @"break end";
 
-@implementation NSLocale (CXSAdded)
+@implementation NSLocale (SGAddition)
 
 + (BOOL)isChinese
 {

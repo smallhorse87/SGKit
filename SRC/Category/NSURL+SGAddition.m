@@ -6,11 +6,11 @@
 //  Copyright © 2017年 chen xiaosong. All rights reserved.
 //
 
-#import "NSURL+CXSAdd.h"
+#import "NSURL+SGAddition.h"
 
-#import "UIDevice+CXSAdded.h"
+#import "UIDevice+SGAddition.h"
 
-@implementation NSURL (CXSAdd)
+@implementation NSURL (SGAddition)
 
 + (NSURL*) imgUrl:(NSString*)str
 {

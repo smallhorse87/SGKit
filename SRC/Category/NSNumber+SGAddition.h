@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSNumber (CXSAdded)
+@interface NSNumber (SGAddition)
 
 + (NSNumber *)numberWithString:(NSString *)string;
 

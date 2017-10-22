@@ -6,9 +6,9 @@
 //  Copyright © 2017年 Zhitian Network Tech. All rights reserved.
 //
 
-#import "UIFont+CXSAdd.h"
+#import "UIFont+SGAddition.h"
 
-@implementation UIFont (CXSAdd)
+@implementation UIFont (SGAddition)
 
 //PingFangSC-Light 细体
 //PingFangSC-Medium 中黑体

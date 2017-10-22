@@ -6,15 +6,15 @@
 //  Copyright © 2016年 chen xiaosong. All rights reserved.
 //
 
-#import "NSDate+CXSAdded.h"
+#import "NSDate+SGAddition.h"
 
-#import "NSLocale+CXSAdded.h"
+#import "NSLocale+SGAddition.h"
 
 #import <time.h>
 
 static NSDictionary *standardStrToDateDic = nil;
 
-@implementation NSDate (CXSAdded)
+@implementation NSDate (SGAddition)
 
 // default Sunday->1
 - (NSString *)dayRangeStart

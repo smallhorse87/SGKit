@@ -6,13 +6,13 @@
 //  Copyright © 2017年 chen xiaosong. All rights reserved.
 //
 
-#import "UIImageView+CXSAdd.h"
+#import "UIImageView+SGAddition.h"
 
 //#import <SDWebImage/UIImageView+WebCache.h>
 
-#import "NSURL+CXSAdd.h"
+#import "NSURL+SGAddition.h"
 
-@implementation UIImageView (CXSAdd)
+@implementation UIImageView (SGAddition)
 
 //stony comment
 //- (void)withObject:(id)obj andDefaultImg:(NSString*)defaultImg sucBlock:(void (^)())sucBlock

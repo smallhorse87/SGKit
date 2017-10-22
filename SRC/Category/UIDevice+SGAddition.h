@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIDevice (CXSAdded)
+@interface UIDevice (SGAddition)
 
 +(BOOL) cameraSupportsMedia:(NSString *)paramMediaType sourceType:(UIImagePickerControllerSourceType)paramSourceType;
 +(BOOL) isCameraAvailable;

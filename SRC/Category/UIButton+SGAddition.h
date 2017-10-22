@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIButton (CXSAdded)
+@interface UIButton (SGAddition)
 
 - (void)setLocalizedTitle:(NSString*)title;
 

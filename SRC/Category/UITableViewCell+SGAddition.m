@@ -6,9 +6,9 @@
 //  Copyright © 2017年 chen xiaosong. All rights reserved.
 //
 
-#import "UITableViewCell+CXSAdded.h"
+#import "UITableViewCell+SGAddition.h"
 
-@implementation UITableViewCell (CXSAdded)
+@implementation UITableViewCell (SGAddition)
 
 + (UITableViewCell*)buildSeparatorCell
 {

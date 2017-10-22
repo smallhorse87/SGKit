@@ -14,7 +14,7 @@ extern NSString *const notiTaskReminder;
 extern NSString *const notiFocusEnd;
 extern NSString *const notiBreakEnd;
 
-@interface NSLocale (CXSAdded)
+@interface NSLocale (SGAddition)
 
 + (BOOL)isChinese;
 
