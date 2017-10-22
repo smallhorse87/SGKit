@@ -21,7 +21,6 @@
 
 - (NSString*)sg_limitWithLength:(NSInteger)len;
 
-//stony debug
 + (NSMutableAttributedString*)sg_buildDialogPomoCntAttributeString:(NSInteger)pomoCnt;
 
 + (NSMutableAttributedString*)sg_buildActiveDaysAttributeString:(NSInteger)days fontWeight:(CGFloat)weight;

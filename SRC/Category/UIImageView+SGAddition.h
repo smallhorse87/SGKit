@@ -10,9 +10,8 @@
 
 @interface UIImageView (SGAddition)
 
-//stony
-//- (void)withObject:(id)obj andDefaultImg:(NSString*)defaultImg sucBlock:(void (^)())sucBlock;
-//
-//- (void)withUrlObject:(id)obj sucBlock:(void (^)())sucBlock;
+- (void)sg_withObject:(id)obj andDefaultImg:(NSString*)defaultImg sucBlock:(void (^)())sucBlock;
+
+- (void)sg_withUrlObject:(id)obj sucBlock:(void (^)())sucBlock;
 
 @end
