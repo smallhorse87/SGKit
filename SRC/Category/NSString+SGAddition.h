@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-//stony debug
-//#import "NSString+WPAttributedMarkup.h"
-
 #define isEmptyString(string) (string == nil || string.length == 0)
 
 @interface NSString (SGAddition)
@@ -25,13 +22,13 @@
 - (NSString*)sg_limitWithLength:(NSInteger)len;
 
 //stony debug
-//+ (NSMutableAttributedString*)sg_buildDialogPomoCntAttributeString:(NSInteger)pomoCnt;
++ (NSMutableAttributedString*)sg_buildDialogPomoCntAttributeString:(NSInteger)pomoCnt;
 
-//+ (NSMutableAttributedString*)sg_buildActiveDaysAttributeString:(NSInteger)days fontWeight:(CGFloat)weight;
-//+ (NSMutableAttributedString*)sg_buildConsumedTimeAttributeString:(NSInteger)timeInterval fontWeight:(CGFloat)weight;
-//+ (NSMutableAttributedString*)sg_buildCompletedAssignmentAttributeString:(NSInteger)completedCnt fontWeight:(CGFloat)weight;
-//+ (NSString*)sg_displayInHour:(CGFloat)seconds;
-//+ (NSString*)sg_inspiration:(CGFloat)focusTime;
++ (NSMutableAttributedString*)sg_buildActiveDaysAttributeString:(NSInteger)days fontWeight:(CGFloat)weight;
++ (NSMutableAttributedString*)sg_buildConsumedTimeAttributeString:(NSInteger)timeInterval fontWeight:(CGFloat)weight;
++ (NSMutableAttributedString*)sg_buildCompletedAssignmentAttributeString:(NSInteger)completedCnt fontWeight:(CGFloat)weight;
++ (NSString*)sg_displayInHour:(CGFloat)seconds;
++ (NSString*)sg_inspiration:(CGFloat)focusTime;
 
 - (NSString *)sg_stringByTrim;
 - (NSString*) sg_trimWhitespace;

@@ -26,7 +26,7 @@
 
 - (void)sg_noSeparator
 {
-    [self sg_separatorInset:kScreenWidth];
+    [self sg_separatorInset:kSGScreenWidth];
 }
 
 - (void)sg_separatorInsetBothSide

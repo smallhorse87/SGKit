@@ -9,8 +9,17 @@
 #ifndef SGKitMarco_h
 #define SGKitMarco_h
 
-#ifndef kScreenWidth
-#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#ifndef kSGScreenWidth
+#define kSGScreenWidth [UIScreen mainScreen].bounds.size.width
 #endif
+
+#ifndef kSGSecondsPerMinute
+#define kSGSecondsPerMinute 60.0
+#endif
+
+#ifndef kSGSecondsPerHour
+#define kSGSecondsPerHour 3600.0
+#endif
+
 
 #endif /* SGKitMarco_h */

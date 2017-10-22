@@ -23,7 +23,7 @@
 
 - (void)sg_noSeparator
 {
-    [self sg_separatorInset:kScreenWidth];
+    [self sg_separatorInset:kSGScreenWidth];
 }
 
 #pragma mark - utility
