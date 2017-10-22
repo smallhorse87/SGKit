@@ -9,8 +9,6 @@
 #ifndef CSXCategory_h
 #define CSXCategory_h
 
-#import <SDWebImage/UIImageView+WebCache.h>
-
 #import "NSURL+SGAddition.h"
 #import "UIImageView+SGAddition.h"
 #import "UIFont+SGAddition.h"
@@ -26,8 +24,5 @@
 #import "UIButton+SGAddition.h"
 #import "UITableViewCell+SGAddition.h"
 #import "UIImage+RTTint.h"
-
-#import "UIViewController+STPickerSingle.h"
-#import "UIViewController+WeekSelector.h"
 
 #endif /* CSXCategory_h */

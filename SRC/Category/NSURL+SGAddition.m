@@ -8,8 +8,6 @@
 
 #import "NSURL+SGAddition.h"
 
-#import "UIDevice+SGAddition.h"
-
 @implementation NSURL (SGAddition)
 
 + (NSURL*) sg_imgUrl:(NSString*)str

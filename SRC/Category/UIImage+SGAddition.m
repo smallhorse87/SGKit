@@ -13,8 +13,6 @@
 #import <CoreText/CoreText.h>
 #import <objc/runtime.h>
 
-#import "UIDevice+SGAddition.h"
-
 @implementation UIImage (SGAddition)
 
 + (UIImage *)sg_withObject:(id)obj

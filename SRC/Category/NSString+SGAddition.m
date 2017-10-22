@@ -12,8 +12,6 @@
 
 #import "SGKitMarco.h"
 
-#import "UIColor+SGAddition.h"
-
 @implementation NSString (SGAddition)
 
 

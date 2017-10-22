@@ -46,7 +46,6 @@
 		8131EAE91F9AF05000F8818D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		81A4F30B1F9C1D510019DC8E /* UIButton+SGAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+SGAddition.m"; sourceTree = "<group>"; };
 		81A4F30C1F9C1D520019DC8E /* UITableViewCell+SGAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+SGAddition.h"; sourceTree = "<group>"; };
-		81A4F30D1F9C1D520019DC8E /* UIImage+SGAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SGAddition.h"; sourceTree = "<group>"; };
 		81A4F30E1F9C1D520019DC8E /* NSString+SGAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SGAddition.h"; sourceTree = "<group>"; };
 		81A4F30F1F9C1D520019DC8E /* NSURL+SGAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+SGAddition.h"; sourceTree = "<group>"; };
 		81A4F3101F9C1D520019DC8E /* UIImage+RTTint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RTTint.m"; sourceTree = "<group>"; };
@@ -169,7 +168,6 @@
 				81A4F3171F9C1D520019DC8E /* UIDevice+SGAddition.m */,
 				81A4F31C1F9C1D530019DC8E /* UIFont+SGAddition.h */,
 				81A4F3201F9C1D530019DC8E /* UIFont+SGAddition.m */,
-				81A4F30D1F9C1D520019DC8E /* UIImage+SGAddition.h */,
 				81A4F3281F9C1D540019DC8E /* UIImage+SGAddition.m */,
 				81A4F3271F9C1D540019DC8E /* UIImage+RTTint.h */,
 				81A4F3101F9C1D520019DC8E /* UIImage+RTTint.m */,

@@ -9,7 +9,6 @@
 #import "UIButton+SGAddition.h"
 
 #import "UIImage+SGAddition.h"
-#import "UIColor+SGAddition.h"
 
 @implementation UIButton (SGAddition)
 
