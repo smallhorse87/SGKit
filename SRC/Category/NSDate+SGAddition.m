@@ -17,51 +17,51 @@ static NSDictionary *standardStrToDateDic = nil;
 @implementation NSDate (SGAddition)
 
 // default Sunday->1
-- (NSString *)dayRangeStart
+- (NSString *)sg_dayRangeStart
 {
-    NSDate *firstMoment = self.firstMomentOfThisDay;
+    NSDate *firstMoment = self.sg_firstMomentOfThisDay;
     
     NSString *dayRange = [NSString stringWithFormat:@"%ld",(NSInteger)firstMoment.timeIntervalSince1970];
 
     return dayRange;
 }
 
-- (NSString *)weekRangeStart
+- (NSString *)sg_weekRangeStart
 {
-    NSDate *beginingOfWeek = self.firstMomentOfThisWeek;
+    NSDate *beginingOfWeek = self.sg_firstMomentOfThisWeek;
 
     NSString *weekRange = [NSString stringWithFormat:@"%ld",(NSInteger)beginingOfWeek.timeIntervalSince1970];
 
     return weekRange;
 }
 
--(NSString *)monthRangeStart
+-(NSString *)sg_monthRangeStart
 {
-    NSDate *beginingOfMonth = self.firstMomentOfThisMonth;
+    NSDate *beginingOfMonth = self.sg_firstMomentOfThisMonth;
 
     NSString *monthRange = [NSString stringWithFormat:@"%ld",(NSInteger)beginingOfMonth.timeIntervalSince1970];;
     
     return monthRange;
 }
 
-+ (NSString*)stringForPeriodKey:(NSString*)periodKey
++ (NSString*)sg_stringForPeriodKey:(NSString*)periodKey
 {
     NSArray *dateArr = [periodKey componentsSeparatedByString:@" "];
 
-    NSDate *startDate = [NSDate dateWithStandardString:dateArr[0]];
-    NSDate *endDate   = [NSDate dateWithStandardString:dateArr[1]];
-    NSDate *now       = [NSDate now];
+    NSDate *startDate = [NSDate sg_dateWithStandardString:dateArr[0]];
+    NSDate *endDate   = [NSDate sg_dateWithStandardString:dateArr[1]];
+    NSDate *now       = [NSDate sg_now];
 
-    BOOL todayWithinPeriod = [now isWithinPeriod:startDate toDate:endDate];
+    BOOL todayWithinPeriod = [now sg_isWithinPeriod:startDate toDate:endDate];
 
     NSString *periodStr;
     NSString *extraStr = @"";
 
-    NSInteger diffDays = [startDate diffDayToDate:endDate];
+    NSInteger diffDays = [startDate sg_diffDayToDate:endDate];
 
     if (diffDays == 0) {
         //按天
-        periodStr = [startDate stringMMslashDD];
+        periodStr = [startDate sg_stringMMslashDD];
         
         if (todayWithinPeriod) {
             extraStr = NSLocalizedString(@"(Today)",@"date");
@@ -69,7 +69,7 @@ static NSDictionary *standardStrToDateDic = nil;
         
     } else if(diffDays == 7 - 1) {
         //按周
-        periodStr = [NSString stringWithFormat:@"%@ - %@", [startDate stringMMslashDD], [endDate stringMMslashDD]];
+        periodStr = [NSString stringWithFormat:@"%@ - %@", [startDate sg_stringMMslashDD], [endDate sg_stringMMslashDD]];
         
         if (todayWithinPeriod) {
             extraStr = NSLocalizedString(@"(This week)",@"date");
@@ -77,7 +77,7 @@ static NSDictionary *standardStrToDateDic = nil;
         
     } else {
         //按月
-        periodStr = [NSString stringWithFormat:@"%@ - %@", [startDate stringMMslashDD], [endDate stringMMslashDD]];
+        periodStr = [NSString stringWithFormat:@"%@ - %@", [startDate sg_stringMMslashDD], [endDate sg_stringMMslashDD]];
         
         if (todayWithinPeriod) {
             extraStr = NSLocalizedString(@"(This month)",@"date");
@@ -87,7 +87,7 @@ static NSDictionary *standardStrToDateDic = nil;
     return [periodStr stringByAppendingString:extraStr];
 }
 
-+ (NSCalendar *)gregorianCalendar
++ (NSCalendar *)sg_gregorianCalendar
 {
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     
@@ -96,76 +96,76 @@ static NSDictionary *standardStrToDateDic = nil;
     return calendar;
 }
 
-+ (NSDateComponents *)currentDateComponents
++ (NSDateComponents *)sg_currentDateComponents
 {
-    NSCalendar *calendar = [NSDate gregorianCalendar];
+    NSCalendar *calendar = [NSDate sg_gregorianCalendar];
     NSInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday;
     return [calendar components:unitFlags fromDate:[NSDate date]];
 }
 
-+ (NSInteger)elapsedDaysOfThisMonth:(NSDate*)toDate from:(NSDate*)fromDate
++ (NSInteger)sg_elapsedDaysOfThisMonth:(NSDate*)toDate from:(NSDate*)fromDate
 {
-    NSDate *firstMonthDateOfToDate = [toDate firstMomentOfThisMonth];
+    NSDate *firstMonthDateOfToDate = [toDate sg_firstMomentOfThisMonth];
     
-    NSDate *firstMonthDateOfFromDate = [fromDate firstMomentOfThisMonth];
+    NSDate *firstMonthDateOfFromDate = [fromDate sg_firstMomentOfThisMonth];
 
     //起始和结束在同一月
-    if ([firstMonthDateOfToDate diffMonthToDate:firstMonthDateOfFromDate]==0) {
-        return [fromDate diffDayToDate:toDate]+1;
+    if ([firstMonthDateOfToDate sg_diffMonthToDate:firstMonthDateOfFromDate]==0) {
+        return [fromDate sg_diffDayToDate:toDate]+1;
     } else {
-        return toDate.day;
+        return toDate.sg_day;
     }
 }
 
 //计算当前前周的有效天数
-+ (NSInteger)elapsedDaysOfThisWeek:(NSDate*)toDate from:(NSDate*)fromDate
++ (NSInteger)sg_elapsedDaysOfThisWeek:(NSDate*)toDate from:(NSDate*)fromDate
 {
-    NSDate *firstWeekDateOfToDate = [toDate firstMomentOfThisWeek];
+    NSDate *firstWeekDateOfToDate = [toDate sg_firstMomentOfThisWeek];
 
-    NSDate *firstWeekDateOfFromDate = [fromDate firstMomentOfThisWeek];
+    NSDate *firstWeekDateOfFromDate = [fromDate sg_firstMomentOfThisWeek];
     
     //起始和结束在同一周
-    if ([firstWeekDateOfToDate diffWeekToDate:firstWeekDateOfFromDate]==0) {
-        return [fromDate diffDayToDate:toDate]+1;
+    if ([firstWeekDateOfToDate sg_diffWeekToDate:firstWeekDateOfFromDate]==0) {
+        return [fromDate sg_diffDayToDate:toDate]+1;
     } else {
-        return toDate.weekday;
+        return toDate.sg_weekday;
     }
 }
 
-+ (NSDate*)now
++ (NSDate*)sg_now
 {
     return [[NSDate alloc] init];
 }
 
-+ (NSInteger)currentMonth
++ (NSInteger)sg_currentMonth
 {
-    return [self currentDateComponents].month;
+    return [self sg_currentDateComponents].month;
 }
 
-+ (NSInteger)currentYear
++ (NSInteger)sg_currentYear
 {
-    return [self currentDateComponents].year;
+    return [self sg_currentDateComponents].year;
 }
 
-+ (NSInteger)currentDay
++ (NSInteger)sg_currentDay
 {
-    return [self currentDateComponents].day;
+    return [self sg_currentDateComponents].day;
 }
 
-+ (NSInteger)currentWeekday
++ (NSInteger)sg_currentWeekday
 {
-    return [self now].weekday;
+    return [self sg_now].sg_weekday;
 }
 
-+ (NSString*)currentWeekdaySymbol
++ (NSString*)sg_currentWeekdaySymbol
 {
-    NSInteger weekday  = [self now].weekday;
-    NSArray   *symbols = [self weekDayFullEnglishSymbols];
+    NSInteger weekday  = [self sg_now].sg_weekday;
+    NSArray   *symbols = [self sg_weekDayFullEnglishSymbols];
 
     return symbols[weekday-1];
 }
 
-+ (NSInteger)getDaysWithYear:(NSInteger)year
++ (NSInteger)sg_getDaysWithYear:(NSInteger)year
                        month:(NSInteger)month
 {
     switch (month) {
@@ -215,35 +215,35 @@ static NSDictionary *standardStrToDateDic = nil;
     }
 }
 
-- (NSInteger)year {
-    return [[[NSDate gregorianCalendar] components:NSCalendarUnitYear fromDate:self] year];
+- (NSInteger)sg_year {
+    return [[[NSDate sg_gregorianCalendar] components:NSCalendarUnitYear fromDate:self] year];
 }
 
-- (NSInteger)month {
-    return [[[NSDate gregorianCalendar] components:NSCalendarUnitMonth fromDate:self] month];
+- (NSInteger)sg_month {
+    return [[[NSDate sg_gregorianCalendar] components:NSCalendarUnitMonth fromDate:self] month];
 }
 
-- (NSInteger)day {
-    return [[[NSDate gregorianCalendar] components:NSCalendarUnitDay fromDate:self] day];
+- (NSInteger)sg_day {
+    return [[[NSDate sg_gregorianCalendar] components:NSCalendarUnitDay fromDate:self] day];
 }
 
-- (NSInteger)hour {
-    return [[[NSDate gregorianCalendar] components:NSCalendarUnitHour fromDate:self] hour];
+- (NSInteger)sg_hour {
+    return [[[NSDate sg_gregorianCalendar] components:NSCalendarUnitHour fromDate:self] hour];
 }
 
-- (NSInteger)minute {
-    return [[[NSDate gregorianCalendar] components:NSCalendarUnitMinute fromDate:self] minute];
+- (NSInteger)sg_minute {
+    return [[[NSDate sg_gregorianCalendar] components:NSCalendarUnitMinute fromDate:self] minute];
 }
 
-- (NSInteger)second {
-    return [[[NSDate gregorianCalendar] components:NSCalendarUnitSecond fromDate:self] second];
+- (NSInteger)sg_second {
+    return [[[NSDate sg_gregorianCalendar] components:NSCalendarUnitSecond fromDate:self] second];
 }
 
-- (NSInteger)nanosecond {
-    return [[[NSDate gregorianCalendar] components:NSCalendarUnitSecond fromDate:self] nanosecond];
+- (NSInteger)sg_nanosecond {
+    return [[[NSDate sg_gregorianCalendar] components:NSCalendarUnitSecond fromDate:self] nanosecond];
 }
 
-- (NSInteger)weekday {
+- (NSInteger)sg_weekday {
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     
     NSDateComponents *components = [calendar components:NSCalendarUnitWeekday fromDate:self];
@@ -255,7 +255,7 @@ static NSDictionary *standardStrToDateDic = nil;
     }
 }
 
-+(NSArray*)weekDayFullEnglishSymbols
++(NSArray*)sg_weekDayFullEnglishSymbols
 {
     return @[
              NSLocalizedString(@"Monday",@"week symbole"),
@@ -268,7 +268,7 @@ static NSDictionary *standardStrToDateDic = nil;
              ];
 }
 
-+(NSArray*)weekDaySymbols
++(NSArray*)sg_weekDaySymbols
 {
     return @[
              NSLocalizedString(@"Mon",@"week symbole"),
@@ -281,7 +281,7 @@ static NSDictionary *standardStrToDateDic = nil;
              ];
 }
 
-+(NSArray*)shortWeekDaySymbols
++(NSArray*)sg_shortWeekDaySymbols
 {
     return @[
              NSLocalizedString(@"Mo",@"week symbole"),
@@ -295,8 +295,8 @@ static NSDictionary *standardStrToDateDic = nil;
 }
 
 
-- (NSString *)weekdaySymbol {
-    NSInteger w = self.weekday;
+- (NSString *)sg_weekdaySymbol {
+    NSInteger w = self.sg_weekday;
     
     NSString *weekDay = @"";
     
@@ -314,28 +314,28 @@ static NSDictionary *standardStrToDateDic = nil;
     return weekDay;
 }
 
-- (NSInteger)weekdayOrdinal {
-    return [[[NSDate gregorianCalendar] components:NSCalendarUnitWeekdayOrdinal fromDate:self] weekdayOrdinal];
+- (NSInteger)sg_weekdayOrdinal {
+    return [[[NSDate sg_gregorianCalendar] components:NSCalendarUnitWeekdayOrdinal fromDate:self] weekdayOrdinal];
 }
 
-- (NSInteger)weekOfMonth {
-    return [[[NSDate gregorianCalendar] components:NSCalendarUnitWeekOfMonth fromDate:self] weekOfMonth];
+- (NSInteger)sg_weekOfMonth {
+    return [[[NSDate sg_gregorianCalendar] components:NSCalendarUnitWeekOfMonth fromDate:self] weekOfMonth];
 }
 
-- (NSInteger)weekOfYear {
-    return [[[NSDate gregorianCalendar] components:NSCalendarUnitWeekOfYear fromDate:self] weekOfYear];
+- (NSInteger)sg_weekOfYear {
+    return [[[NSDate sg_gregorianCalendar] components:NSCalendarUnitWeekOfYear fromDate:self] weekOfYear];
 }
 
-- (NSInteger)yearForWeekOfYear {
-    return [[[NSDate gregorianCalendar] components:NSCalendarUnitYearForWeekOfYear fromDate:self] yearForWeekOfYear];
+- (NSInteger)sg_yearForWeekOfYear {
+    return [[[NSDate sg_gregorianCalendar] components:NSCalendarUnitYearForWeekOfYear fromDate:self] yearForWeekOfYear];
 }
 
-- (NSInteger)quarter {
-    return [[[NSDate gregorianCalendar] components:NSCalendarUnitQuarter fromDate:self] quarter];
+- (NSInteger)sg_quarter {
+    return [[[NSDate sg_gregorianCalendar] components:NSCalendarUnitQuarter fromDate:self] quarter];
 }
 
-- (NSDate *)nextDay {
-    NSCalendar *calendar = [NSDate gregorianCalendar];
+- (NSDate *)sg_nextDay {
+    NSCalendar *calendar = [NSDate sg_gregorianCalendar];
     
     NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:self];
     
@@ -344,8 +344,8 @@ static NSDictionary *standardStrToDateDic = nil;
     return [calendar dateFromComponents:components];
 }
 
-- (NSDate *)lastDay {
-    NSCalendar *calendar = [NSDate gregorianCalendar];
+- (NSDate *)sg_lastDay {
+    NSCalendar *calendar = [NSDate sg_gregorianCalendar];
     
     NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:self];
     
@@ -354,12 +354,12 @@ static NSDictionary *standardStrToDateDic = nil;
     return [calendar dateFromComponents:components];
 }
 
-- (NSDate *)beginDateToUnitGranularity:(NSCalendarUnit)unit
+- (NSDate *)sg_beginDateToUnitGranularity:(NSCalendarUnit)unit
 {
     NSDate *beginDate;
     NSTimeInterval interval;
     
-    NSCalendar *calendar = [NSDate gregorianCalendar];
+    NSCalendar *calendar = [NSDate sg_gregorianCalendar];
     calendar.firstWeekday = 2;
     
     BOOL ok = [calendar rangeOfUnit:unit startDate:&beginDate interval:&interval forDate:self];
@@ -370,12 +370,12 @@ static NSDictionary *standardStrToDateDic = nil;
     
 }
 
-- (NSDate *)endDateToUnitGranularity:(NSCalendarUnit)unit
+- (NSDate *)sg_endDateToUnitGranularity:(NSCalendarUnit)unit
 {
     NSDate *beginDate;
     NSTimeInterval interval;
     
-    NSCalendar *calendar = [NSDate gregorianCalendar];
+    NSCalendar *calendar = [NSDate sg_gregorianCalendar];
     calendar.firstWeekday = 2;
     
     BOOL ok = [calendar rangeOfUnit:unit startDate:&beginDate interval:&interval forDate:self];
@@ -385,50 +385,50 @@ static NSDictionary *standardStrToDateDic = nil;
     return [beginDate dateByAddingTimeInterval:interval-1];
 }
 
-- (NSDate *)firstMomentOfThisDay {
-    return [self beginDateToUnitGranularity:NSCalendarUnitDay];
+- (NSDate *)sg_firstMomentOfThisDay {
+    return [self sg_beginDateToUnitGranularity:NSCalendarUnitDay];
 }
 
-- (NSDate *)firstMomentOfThisMonth {
-    return [self beginDateToUnitGranularity:NSCalendarUnitMonth];
+- (NSDate *)sg_firstMomentOfThisMonth {
+    return [self sg_beginDateToUnitGranularity:NSCalendarUnitMonth];
 }
 
-- (NSDate *)lastMomentOfThisMonth {
-    return [self endDateToUnitGranularity:NSCalendarUnitMonth];
+- (NSDate *)sg_lastMomentOfThisMonth {
+    return [self sg_endDateToUnitGranularity:NSCalendarUnitMonth];
 }
 
-- (NSDate *)firstMomentOfThisWeek {
-    return [self beginDateToUnitGranularity:NSCalendarUnitWeekOfMonth];
+- (NSDate *)sg_firstMomentOfThisWeek {
+    return [self sg_beginDateToUnitGranularity:NSCalendarUnitWeekOfMonth];
 }
 
-- (NSDate *)lastMomentOfThisWeek {
-    return [self endDateToUnitGranularity:NSCalendarUnitWeekOfMonth];
+- (NSDate *)sg_lastMomentOfThisWeek {
+    return [self sg_endDateToUnitGranularity:NSCalendarUnitWeekOfMonth];
 }
 
 
-- (BOOL)isLeapMonth {
-    return [[[NSDate gregorianCalendar] components:NSCalendarUnitQuarter fromDate:self] isLeapMonth];
+- (BOOL)sg_isLeapMonth {
+    return [[[NSDate sg_gregorianCalendar] components:NSCalendarUnitQuarter fromDate:self] isLeapMonth];
 }
 
-- (BOOL)isLeapYear {
-    NSUInteger year = self.year;
+- (BOOL)sg_isLeapYear {
+    NSUInteger year = self.sg_year;
     return ((year % 400 == 0) || ((year % 100 != 0) && (year % 4 == 0)));
 }
 
-- (BOOL)isToday {
+- (BOOL)sg_isToday {
     if (fabs(self.timeIntervalSinceNow) >= 60 * 60 * 24) return NO;
-    return [NSDate new].day == self.day;
+    return [NSDate new].sg_day == self.sg_day;
 }
 
-- (BOOL)isYesterday {
-    NSDate *added = [self dateByAddingDays:1];
-    return [added isToday];
+- (BOOL)sg_isYesterday {
+    NSDate *added = [self sg_dateByAddingDays:1];
+    return [added sg_isToday];
 }
 
-- (BOOL)isWithinPeriod:(NSDate *)fromDate toDate:(NSDate *)toDate
+- (BOOL)sg_isWithinPeriod:(NSDate *)fromDate toDate:(NSDate *)toDate
 {
-    NSInteger offsetBetweenFromDateAndToday = [fromDate diffDayToDate:self];
-    NSInteger offsetBetweenTodayAndEndDate  = [self     diffDayToDate:toDate];
+    NSInteger offsetBetweenFromDateAndToday = [fromDate sg_diffDayToDate:self];
+    NSInteger offsetBetweenTodayAndEndDate  = [self     sg_diffDayToDate:toDate];
     
     if (offsetBetweenFromDateAndToday>=0 && offsetBetweenTodayAndEndDate>=0) {
         return YES;
@@ -437,96 +437,96 @@ static NSDictionary *standardStrToDateDic = nil;
     return NO;
 }
 
-- (NSDate *)dateByAddingYears:(NSInteger)years {
-    NSCalendar *calendar =  [NSDate gregorianCalendar];
+- (NSDate *)sg_dateByAddingYears:(NSInteger)years {
+    NSCalendar *calendar =  [NSDate sg_gregorianCalendar];
     NSDateComponents *components = [[NSDateComponents alloc] init];
     [components setYear:years];
     return [calendar dateByAddingComponents:components toDate:self options:0];
 }
 
-- (NSDate *)dateByAddingMonths:(NSInteger)months {
-    NSCalendar *calendar = [NSDate gregorianCalendar];
+- (NSDate *)sg_dateByAddingMonths:(NSInteger)months {
+    NSCalendar *calendar = [NSDate sg_gregorianCalendar];
     NSDateComponents *components = [[NSDateComponents alloc] init];
     [components setMonth:months];
     return [calendar dateByAddingComponents:components toDate:self options:0];
 }
 
 
-- (NSDate *)dateByAddingWeeks:(NSInteger)weeks {
-    NSCalendar *calendar = [NSDate gregorianCalendar];
+- (NSDate *)sg_dateByAddingWeeks:(NSInteger)weeks {
+    NSCalendar *calendar = [NSDate sg_gregorianCalendar];
     NSDateComponents *components = [[NSDateComponents alloc] init];
     [components setWeekOfYear:weeks];
     return [calendar dateByAddingComponents:components toDate:self options:0];
 }
 
-- (NSDate *)dateByAddingDays:(NSInteger)days {
+- (NSDate *)sg_dateByAddingDays:(NSInteger)days {
     NSTimeInterval aTimeInterval = [self timeIntervalSinceReferenceDate] + 86400 * days;
     NSDate *newDate = [NSDate dateWithTimeIntervalSinceReferenceDate:aTimeInterval];
     return newDate;
 }
 
-- (NSDate *)dateByAddingHours:(NSInteger)hours {
+- (NSDate *)sg_dateByAddingHours:(NSInteger)hours {
     NSTimeInterval aTimeInterval = [self timeIntervalSinceReferenceDate] + 3600 * hours;
     NSDate *newDate = [NSDate dateWithTimeIntervalSinceReferenceDate:aTimeInterval];
     return newDate;
 }
 
-- (NSDate *)dateByAddingMinutes:(NSInteger)minutes {
+- (NSDate *)sg_dateByAddingMinutes:(NSInteger)minutes {
     NSTimeInterval aTimeInterval = [self timeIntervalSinceReferenceDate] + 60 * minutes;
     NSDate *newDate = [NSDate dateWithTimeIntervalSinceReferenceDate:aTimeInterval];
     return newDate;
 }
 
-- (NSDate *)dateByAddingSeconds:(NSInteger)seconds {
+- (NSDate *)sg_dateByAddingSeconds:(NSInteger)seconds {
     NSTimeInterval aTimeInterval = [self timeIntervalSinceReferenceDate] + seconds;
     NSDate *newDate = [NSDate dateWithTimeIntervalSinceReferenceDate:aTimeInterval];
     return newDate;
 }
 
 //get another date
-- (NSInteger)diffDayToDate:(NSDate *)toDate
+- (NSInteger)sg_diffDayToDate:(NSDate *)toDate
 {
-    NSCalendar *calendar = [NSDate gregorianCalendar];
+    NSCalendar *calendar = [NSDate sg_gregorianCalendar];
     
-    NSDateComponents *comps = [calendar components:NSCalendarUnitDay fromDate:self.firstMomentOfThisDay  toDate:toDate.firstMomentOfThisDay  options:0];
+    NSDateComponents *comps = [calendar components:NSCalendarUnitDay fromDate:self.sg_firstMomentOfThisDay  toDate:toDate.sg_firstMomentOfThisDay  options:0];
     
     return [comps day];
     
 }
 
-- (NSInteger)diffWeekToDate:(NSDate *)toDate
+- (NSInteger)sg_diffWeekToDate:(NSDate *)toDate
 {
-    NSDate *beginingWeekOfFromDate = self.firstMomentOfThisWeek;
-    NSDate *beginingWeekOfToDate   = toDate.firstMomentOfThisWeek;
+    NSDate *beginingWeekOfFromDate = self.sg_firstMomentOfThisWeek;
+    NSDate *beginingWeekOfToDate   = toDate.sg_firstMomentOfThisWeek;
     
-    NSInteger diffDay = [beginingWeekOfFromDate diffDayToDate:beginingWeekOfToDate];
+    NSInteger diffDay = [beginingWeekOfFromDate sg_diffDayToDate:beginingWeekOfToDate];
     
     return diffDay/7;
     
 }
 
-- (NSInteger)diffMonthToDate:(NSDate *)toDate
+- (NSInteger)sg_diffMonthToDate:(NSDate *)toDate
 {
-    NSCalendar *calendar = [NSDate gregorianCalendar];
+    NSCalendar *calendar = [NSDate sg_gregorianCalendar];
     
     NSDateComponents *components = [calendar components:NSCalendarUnitMonth
-                                               fromDate:self.firstMomentOfThisMonth
-                                                 toDate:toDate.firstMomentOfThisMonth
+                                               fromDate:self.sg_firstMomentOfThisMonth
+                                                 toDate:toDate.sg_firstMomentOfThisMonth
                                                 options:0];
     return components.month;
 }
 
-+ (NSComparisonResult)compareDay:(NSDate *)first with:(NSDate *)second
++ (NSComparisonResult)sg_compareDay:(NSDate *)first with:(NSDate *)second
 {
-    return [[NSDate gregorianCalendar] compareDate:first toDate:second toUnitGranularity:NSCalendarUnitDay];
+    return [[NSDate sg_gregorianCalendar] compareDate:first toDate:second toUnitGranularity:NSCalendarUnitDay];
 }
 
-+ (NSComparisonResult)compareTime:(NSDate *)first with:(NSDate *)second
++ (NSComparisonResult)sg_compareTime:(NSDate *)first with:(NSDate *)second
 {
-    return [[NSDate gregorianCalendar] compareDate:first toDate:second toUnitGranularity:NSCalendarUnitSecond];
+    return [[NSDate sg_gregorianCalendar] compareDate:first toDate:second toUnitGranularity:NSCalendarUnitSecond];
 }
 
-+ (NSDate*)compareMaxDay:(NSDate*)first with:(NSDate*)second
++ (NSDate*)sg_compareMaxDay:(NSDate*)first with:(NSDate*)second
 {
     NSAssert((first!=nil) && (second!=nil), @"input Can not be nil");
     
@@ -534,7 +534,7 @@ static NSDictionary *standardStrToDateDic = nil;
     NSAssert([second isKindOfClass:[NSDate class]], @"input must be NSDate");
     
     //大小比较 大于
-    if([self compareDay:first with:second] == NSOrderedAscending)
+    if([self sg_compareDay:first with:second] == NSOrderedAscending)
     {
         return second;
     } else {
@@ -542,7 +542,7 @@ static NSDictionary *standardStrToDateDic = nil;
     }
 }
 
-+ (NSDate*)compareMinDay:(NSDate *)first with:(NSDate *)second
++ (NSDate*)sg_compareMinDay:(NSDate *)first with:(NSDate *)second
 {
     NSAssert((first!=nil) && (second!=nil), @"input Can not be nil");
     
@@ -550,7 +550,7 @@ static NSDictionary *standardStrToDateDic = nil;
     NSAssert([second isKindOfClass:[NSDate class]], @"input must be NSDate");
     
     //大小比较 大于
-    if([self compareDay:first with:second] == NSOrderedAscending)
+    if([self sg_compareDay:first with:second] == NSOrderedAscending)
     {
         return first;
     } else {
@@ -558,9 +558,9 @@ static NSDictionary *standardStrToDateDic = nil;
     }
 }
 
-- (BOOL)isLaterOrSameDay:(NSDate*)date
+- (BOOL)sg_isLaterOrSameDay:(NSDate*)date
 {
-    NSComparisonResult result = [NSDate compareDay:self with:date];
+    NSComparisonResult result = [NSDate sg_compareDay:self with:date];
     
     if((result==NSOrderedDescending) || (result==NSOrderedSame))
     {
@@ -572,9 +572,9 @@ static NSDictionary *standardStrToDateDic = nil;
     }
 }
 
-- (BOOL)isLaterThanTime:(NSDate*)date
+- (BOOL)sg_isLaterThanTime:(NSDate*)date
 {
-    NSComparisonResult result = [NSDate compareTime:self with:date];
+    NSComparisonResult result = [NSDate sg_compareTime:self with:date];
     
     if((result==NSOrderedDescending) || (result==NSOrderedSame))
     {
@@ -586,116 +586,116 @@ static NSDictionary *standardStrToDateDic = nil;
     }
 }
 
-- (BOOL)isSameDay:(NSDate *)date
+- (BOOL)sg_isSameDay:(NSDate *)date
 {
-    return [[NSDate gregorianCalendar] isDate:self equalToDate:date toUnitGranularity:NSCalendarUnitDay];
+    return [[NSDate sg_gregorianCalendar] isDate:self equalToDate:date toUnitGranularity:NSCalendarUnitDay];
 }
 
-- (BOOL)sameMonth:(NSDate *)date
+- (BOOL)sg_sameMonth:(NSDate *)date
 {
-    NSDate *firstMomentOfThisMonth = [self firstMomentOfThisMonth];
+    NSDate *firstMomentOfThisMonth = [self sg_firstMomentOfThisMonth];
     
-    return [date isSameDay:firstMomentOfThisMonth];
+    return [date sg_isSameDay:firstMomentOfThisMonth];
 }
 
-- (BOOL)sameWeek:(NSDate *)date
+- (BOOL)sg_sameWeek:(NSDate *)date
 {
-    NSDate *firstMomentOfThisWeek = [self firstMomentOfThisWeek];
+    NSDate *firstMomentOfThisWeek = [self sg_firstMomentOfThisWeek];
     
-    return [date isSameDay:firstMomentOfThisWeek];
+    return [date sg_isSameDay:firstMomentOfThisWeek];
 }
 
--(NSString *)standardShortString
+-(NSString *)sg_standardShortString
 {
-    return [self cxs_stringWithFormat:@"yyyy-M-d"];
+    return [self sg_stringWithFormat:@"yyyy-M-d"];
 }
 
--(NSString *)standardString
+-(NSString *)sg_standardString
 {
-    return [self cxs_stringWithFormat:@"yyyy-MM-dd"];
+    return [self sg_stringWithFormat:@"yyyy-MM-dd"];
 }
 
--(NSString *)stringYYYYminusMminusD
+-(NSString *)sg_stringYYYYminusMminusD
 {
-    return [self cxs_stringWithFormat:@"yyyy-M-d"];
+    return [self sg_stringWithFormat:@"yyyy-M-d"];
 }
 
--(NSString *)stringYYYYminusMM
+-(NSString *)sg_stringYYYYminusMM
 {
-    return [self cxs_stringWithFormat:@"yyyy-MM"];
+    return [self sg_stringWithFormat:@"yyyy-MM"];
 }
 
--(NSString *)stringYYYYminusM
+-(NSString *)sg_stringYYYYminusM
 {
-    return [self cxs_stringWithFormat:@"yyyy-M"];
+    return [self sg_stringWithFormat:@"yyyy-M"];
 }
 
--(NSString *)stringMMslashDD
+-(NSString *)sg_stringMMslashDD
 {
-    return [self cxs_stringWithFormat:@"MM/dd"];
+    return [self sg_stringWithFormat:@"MM/dd"];
 }
 
--(NSString *)stringMMminusDD
+-(NSString *)sg_stringMMminusDD
 {
-    return [self cxs_stringWithFormat:@"MM-dd"];
+    return [self sg_stringWithFormat:@"MM-dd"];
 }
 
--(NSString *)stringMslashD
+-(NSString *)sg_stringMslashD
 {
-    return [self cxs_stringWithFormat:@"M/d"];
+    return [self sg_stringWithFormat:@"M/d"];
 }
 
 
--(NSString *)stringMMDDWord
+-(NSString *)sg_stringMMDDWord
 {
     if ([NSLocale isChinese]) {
-        return [self cxs_stringWithFormat:@"MM月dd日"];
+        return [self sg_stringWithFormat:@"MM月dd日"];
     } else {
-        return [self cxs_stringWithFormat:@"MMM d"];
+        return [self sg_stringWithFormat:@"MMM d"];
     }
     
 }
 
--(NSString *)stringMDWord
+-(NSString *)sg_stringMDWord
 {
     if ([NSLocale isChinese]) {
-        return [self cxs_stringWithFormat:@"M月d日"];
+        return [self sg_stringWithFormat:@"M月d日"];
     } else {
-        return [self cxs_stringWithFormat:@"MMM d"];
+        return [self sg_stringWithFormat:@"MMM d"];
     }
     
 }
 
--(NSString *)stringYYYYMMDDWord
+-(NSString *)sg_stringYYYYMMDDWord
 {
     if ([NSLocale isChinese]) {
-        return [self cxs_stringWithFormat:@"yyyy年MM月dd日"];
+        return [self sg_stringWithFormat:@"yyyy年MM月dd日"];
     } else {
-        return [self cxs_stringWithFormat:@"MMM d, yyyy"];
+        return [self sg_stringWithFormat:@"MMM d, yyyy"];
     }
     
     
 }
 
--(NSString *)stringHHcolonMM
+-(NSString *)sg_stringHHcolonMM
 {
-    return [self cxs_stringWithFormat:@"HH:mm:ss"];
+    return [self sg_stringWithFormat:@"HH:mm:ss"];
 }
 
--(NSString *)stringFullTime
+-(NSString *)sg_stringFullTime
 {
-    return [self cxs_stringWithFormat:@"yyyy-MM-dd HH:mm:ss"];
+    return [self sg_stringWithFormat:@"yyyy-MM-dd HH:mm:ss"];
 }
 
-- (NSString *)cxs_stringWithFormat:(NSString *)format {
+- (NSString *)sg_stringWithFormat:(NSString *)format {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setCalendar:[NSDate gregorianCalendar]];
+    [formatter setCalendar:[NSDate sg_gregorianCalendar]];
     [formatter setDateFormat:format];
     [formatter setLocale:[NSLocale currentLocale]];
     return [formatter stringFromDate:self];
 }
 
-+ (NSDate *)dateWithStandardString:(NSString *)dateString{
++ (NSDate *)sg_dateWithStandardString:(NSString *)dateString{
     
     NSAssert([dateString isKindOfClass:[NSString class]], @"Must be NSString");
 
@@ -703,35 +703,35 @@ static NSDictionary *standardStrToDateDic = nil;
         return nil;
     }
     
-    NSDate *date = [NSDate readStandardStrToDateDic:dateString];
+    NSDate *date = [NSDate sg_readStandardStrToDateDic:dateString];
 
     if (date) {
         return date;
     }
     
-    date = [self dateWithString:dateString format:@"yyyy-MM-dd"];
-    [NSDate cacheStandardStrToDateDic:dateString withDate:date];
+    date = [self sg_dateWithString:dateString format:@"yyyy-MM-dd"];
+    [NSDate sg_cacheStandardStrToDateDic:dateString withDate:date];
     
     return date;
 }
 
-+ (NSDate *)dateWithString:(NSString *)dateString format:(NSString *)format {
++ (NSDate *)sg_dateWithString:(NSString *)dateString format:(NSString *)format {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setCalendar:[NSDate gregorianCalendar]];
+    [formatter setCalendar:[NSDate sg_gregorianCalendar]];
     [formatter setDateFormat:format];
     return [formatter dateFromString:dateString];
 }
 
-+ (NSDate *)dateWithString:(NSString *)dateString format:(NSString *)format timeZone:(NSTimeZone *)timeZone locale:(NSLocale *)locale {
++ (NSDate *)sg_dateWithString:(NSString *)dateString format:(NSString *)format timeZone:(NSTimeZone *)timeZone locale:(NSLocale *)locale {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setCalendar:[NSDate gregorianCalendar]];
+    [formatter setCalendar:[NSDate sg_gregorianCalendar]];
     [formatter setDateFormat:format];
     if (timeZone) [formatter setTimeZone:timeZone];
     if (locale) [formatter setLocale:locale];
     return [formatter dateFromString:dateString];
 }
 
-+ (NSDate *)dateWithISOFormatString:(NSString *)dateString {
++ (NSDate *)sg_dateWithISOFormatString:(NSString *)dateString {
     static NSDateFormatter *formatter = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -758,36 +758,36 @@ static NSDictionary *standardStrToDateDic = nil;
 //    return [[self dateWithStandardString:kMaxDate] dateByAddingDays:1];
 //}
 
-- (BOOL)isEndlessDate
+- (BOOL)sg_isEndlessDate
 {
-    if([self isSameDay:[NSDate endlessDate]])
+    if([self sg_isSameDay:[NSDate sg_endlessDate]])
         return YES;
     else
         return NO;
 }
 
-+ (NSString*)displayXValue:(NSString*)periodStart repeatMode:(NSInteger)mode
++ (NSString*)sg_displayXValue:(NSString*)periodStart repeatMode:(NSInteger)mode
 {
     NSDate *tmpStartDate = [[NSDate alloc] initWithTimeIntervalSince1970:[periodStart integerValue]];
-    NSDate *now          = [NSDate now];
+    NSDate *now          = [NSDate sg_now];
 
-    NSString *xValue = [tmpStartDate stringMslashD];
+    NSString *xValue = [tmpStartDate sg_stringMslashD];
 
     switch (mode) {
         case 0:
-            if ([now isSameDay:tmpStartDate]) {
+            if ([now sg_isSameDay:tmpStartDate]) {
                 xValue = NSLocalizedString(@"Today",@"date");
             }
             break;
             
         case 1:
-            if ([now sameWeek:tmpStartDate]) {
+            if ([now sg_sameWeek:tmpStartDate]) {
                 xValue = NSLocalizedString(@"This week",@"date");
             }
             break;
 
         case 2:
-            if ([now sameMonth:tmpStartDate]) {
+            if ([now sg_sameMonth:tmpStartDate]) {
                 xValue = NSLocalizedString(@"This month",@"date");
             }
             break;
@@ -799,31 +799,31 @@ static NSDictionary *standardStrToDateDic = nil;
     return xValue;
 }
 
-+ (NSString*)displayXFullValue:(NSString*)periodStart repeatMode:(NSInteger)mode
++ (NSString*)sg_displayXFullValue:(NSString*)periodStart repeatMode:(NSInteger)mode
 {
     NSDate *tmpStartDate = [[NSDate alloc] initWithTimeIntervalSince1970:[periodStart integerValue]];
-    NSDate *now          = [NSDate now];
+    NSDate *now          = [NSDate sg_now];
     
-    NSString *xValue = [tmpStartDate stringYYYYminusMminusD];
+    NSString *xValue = [tmpStartDate sg_stringYYYYminusMminusD];
     
     switch (mode) {
         case 0:
-            if ([now isSameDay:tmpStartDate]) {
+            if ([now sg_isSameDay:tmpStartDate]) {
                 xValue = NSLocalizedString(@"Today",@"date");
             }
             break;
             
         case 1:
-            if ([now sameWeek:tmpStartDate]) {
+            if ([now sg_sameWeek:tmpStartDate]) {
                 xValue = NSLocalizedString(@"This week",@"date");
             }
             break;
             
         case 2:
-            if ([now sameMonth:tmpStartDate]) {
+            if ([now sg_sameMonth:tmpStartDate]) {
                 xValue = NSLocalizedString(@"This month",@"date");
             } else {
-                xValue = [tmpStartDate stringYYYYminusM];
+                xValue = [tmpStartDate sg_stringYYYYminusM];
             }
             break;
             
@@ -834,7 +834,7 @@ static NSDictionary *standardStrToDateDic = nil;
     return xValue;
 }
 
-+ (void)cacheStandardStrToDateDic:(NSString*)standardStr withDate:(NSDate*)date
++ (void)sg_cacheStandardStrToDateDic:(NSString*)standardStr withDate:(NSDate*)date
 {
     if(standardStrToDateDic==nil)
     {
@@ -845,7 +845,7 @@ static NSDictionary *standardStrToDateDic = nil;
     
 }
 
-+ (NSDate*)readStandardStrToDateDic:(NSString*)standardStr
++ (NSDate*)sg_readStandardStrToDateDic:(NSString*)standardStr
 {
     if(standardStrToDateDic==nil)
         return nil;
