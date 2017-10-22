@@ -8,6 +8,7 @@
 
 #import "UIImageView+SGAddition.h"
 
+//stony
 //#import <SDWebImage/UIImageView+WebCache.h>
 
 #import "NSURL+SGAddition.h"

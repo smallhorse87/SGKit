@@ -8,8 +8,6 @@
 
 #import "NSDate+SGAddition.h"
 
-#import "NSLocale+SGAddition.h"
-
 #import <time.h>
 
 static NSDictionary *standardStrToDateDic = nil;
@@ -645,37 +643,37 @@ static NSDictionary *standardStrToDateDic = nil;
     return [self sg_stringWithFormat:@"M/d"];
 }
 
-
--(NSString *)sg_stringMMDDWord
-{
-    if ([NSLocale isChinese]) {
-        return [self sg_stringWithFormat:@"MM月dd日"];
-    } else {
-        return [self sg_stringWithFormat:@"MMM d"];
-    }
-    
-}
-
--(NSString *)sg_stringMDWord
-{
-    if ([NSLocale isChinese]) {
-        return [self sg_stringWithFormat:@"M月d日"];
-    } else {
-        return [self sg_stringWithFormat:@"MMM d"];
-    }
-    
-}
-
--(NSString *)sg_stringYYYYMMDDWord
-{
-    if ([NSLocale isChinese]) {
-        return [self sg_stringWithFormat:@"yyyy年MM月dd日"];
-    } else {
-        return [self sg_stringWithFormat:@"MMM d, yyyy"];
-    }
-    
-    
-}
+//stony
+//-(NSString *)sg_stringMMDDWord
+//{
+//    if ([NSLocale isChinese]) {
+//        return [self sg_stringWithFormat:@"MM月dd日"];
+//    } else {
+//        return [self sg_stringWithFormat:@"MMM d"];
+//    }
+//
+//}
+//
+//-(NSString *)sg_stringMDWord
+//{
+//    if ([NSLocale isChinese]) {
+//        return [self sg_stringWithFormat:@"M月d日"];
+//    } else {
+//        return [self sg_stringWithFormat:@"MMM d"];
+//    }
+//
+//}
+//
+//-(NSString *)sg_stringYYYYMMDDWord
+//{
+//    if ([NSLocale isChinese]) {
+//        return [self sg_stringWithFormat:@"yyyy年MM月dd日"];
+//    } else {
+//        return [self sg_stringWithFormat:@"MMM d, yyyy"];
+//    }
+//
+//
+//}
 
 -(NSString *)sg_stringHHcolonMM
 {
@@ -757,14 +755,13 @@ static NSDictionary *standardStrToDateDic = nil;
 //{
 //    return [[self dateWithStandardString:kMaxDate] dateByAddingDays:1];
 //}
-
-- (BOOL)sg_isEndlessDate
-{
-    if([self sg_isSameDay:[NSDate sg_endlessDate]])
-        return YES;
-    else
-        return NO;
-}
+//- (BOOL)sg_isEndlessDate
+//{
+//    if([self sg_isSameDay:[NSDate sg_endlessDate]])
+//        return YES;
+//    else
+//        return NO;
+//}
 
 + (NSString*)sg_displayXValue:(NSString*)periodStart repeatMode:(NSInteger)mode
 {

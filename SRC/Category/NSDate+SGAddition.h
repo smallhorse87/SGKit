@@ -159,9 +159,10 @@
 -(NSString *)sg_stringMMslashDD;
 -(NSString *)sg_stringMMminusDD;
 -(NSString *)sg_stringMslashD;
--(NSString *)sg_stringMMDDWord;
--(NSString *)sg_stringMDWord;
--(NSString *)sg_stringYYYYMMDDWord;
+//stony
+//-(NSString *)sg_stringMMDDWord;
+//-(NSString *)sg_stringMDWord;
+//-(NSString *)sg_stringYYYYMMDDWord;
 -(NSString *)sg_stringFullTime;
 -(NSString *)sg_stringYYYYminusM;
 -(NSString *)sg_stringYYYYminusMminusD;
@@ -205,10 +206,11 @@
  */
 + (nullable NSDate *)sg_dateWithISOFormatString:(NSString *)dateString;
 
-+ (nonnull NSDate*)sg_minDate;
-+ (nonnull NSDate*)sg_maxDate;
-+ (nonnull NSDate*)sg_endlessDate;
-- (BOOL)sg_isEndlessDate;
+//stony
+//+ (nonnull NSDate*)sg_minDate;
+//+ (nonnull NSDate*)sg_maxDate;
+//+ (nonnull NSDate*)sg_endlessDate;
+//- (BOOL)sg_isEndlessDate;
 
 + (NSInteger)sg_elapsedDaysOfThisMonth:(NSDate*)toDate from:(NSDate*)fromDate;
 + (NSInteger)sg_elapsedDaysOfThisWeek:(NSDate*)toDate from:(NSDate*)fromDate;

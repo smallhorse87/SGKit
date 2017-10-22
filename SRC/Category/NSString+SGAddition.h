@@ -24,18 +24,20 @@
 
 - (NSString*)sg_limitWithLength:(NSInteger)len;
 
-+ (NSMutableAttributedString*)sg_buildDialogPomoCntAttributeString:(NSInteger)pomoCnt;
+//stony debug
+//+ (NSMutableAttributedString*)sg_buildDialogPomoCntAttributeString:(NSInteger)pomoCnt;
 
-+ (NSMutableAttributedString*)sg_buildActiveDaysAttributeString:(NSInteger)days fontWeight:(CGFloat)weight;
-+ (NSMutableAttributedString*)sg_buildConsumedTimeAttributeString:(NSInteger)timeInterval fontWeight:(CGFloat)weight;
-+ (NSMutableAttributedString*)sg_buildCompletedAssignmentAttributeString:(NSInteger)completedCnt fontWeight:(CGFloat)weight;
+//+ (NSMutableAttributedString*)sg_buildActiveDaysAttributeString:(NSInteger)days fontWeight:(CGFloat)weight;
+//+ (NSMutableAttributedString*)sg_buildConsumedTimeAttributeString:(NSInteger)timeInterval fontWeight:(CGFloat)weight;
+//+ (NSMutableAttributedString*)sg_buildCompletedAssignmentAttributeString:(NSInteger)completedCnt fontWeight:(CGFloat)weight;
+//+ (NSString*)sg_displayInHour:(CGFloat)seconds;
+//+ (NSString*)sg_inspiration:(CGFloat)focusTime;
 
 - (NSString *)sg_stringByTrim;
 - (NSString*) sg_trimWhitespace;
 
-+ (NSString*)sg_displayInHour:(CGFloat)seconds;
 + (NSString*)sg_displayShortFloat:(CGFloat)floatNum;
 
-+ (NSString*)sg_inspiration:(CGFloat)focusTime;
+
 
 @end

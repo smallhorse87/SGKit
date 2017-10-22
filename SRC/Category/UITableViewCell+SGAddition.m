@@ -17,7 +17,7 @@
     cell.selectionStyle  = UITableViewCellSelectionStyleNone;
     //cell.backgroundColor = kColorBgPage;//stony debug
 
-    [cell sg_noSeparator];
+    //[cell sg_noSeparator];//stony
     
     return cell;
 }
