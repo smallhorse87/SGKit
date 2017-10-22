@@ -12,6 +12,8 @@
 
 #import "SGKitMarco.h"
 
+#import "NSLocale+SGAddition.h"
+
 static NSDictionary *standardStrToDateDic = nil;
 
 @implementation NSDate (SGAddition)
@@ -645,37 +647,36 @@ static NSDictionary *standardStrToDateDic = nil;
     return [self sg_stringWithFormat:@"M/d"];
 }
 
-//stony
-//-(NSString *)sg_stringMMDDWord
-//{
-//    if ([NSLocale isChinese]) {
-//        return [self sg_stringWithFormat:@"MM月dd日"];
-//    } else {
-//        return [self sg_stringWithFormat:@"MMM d"];
-//    }
-//
-//}
-//
-//-(NSString *)sg_stringMDWord
-//{
-//    if ([NSLocale isChinese]) {
-//        return [self sg_stringWithFormat:@"M月d日"];
-//    } else {
-//        return [self sg_stringWithFormat:@"MMM d"];
-//    }
-//
-//}
-//
-//-(NSString *)sg_stringYYYYMMDDWord
-//{
-//    if ([NSLocale isChinese]) {
-//        return [self sg_stringWithFormat:@"yyyy年MM月dd日"];
-//    } else {
-//        return [self sg_stringWithFormat:@"MMM d, yyyy"];
-//    }
-//
-//
-//}
+-(NSString *)sg_stringMMDDWord
+{
+    if ([NSLocale sg_isChinese]) {
+        return [self sg_stringWithFormat:@"MM月dd日"];
+    } else {
+        return [self sg_stringWithFormat:@"MMM d"];
+    }
+
+}
+
+-(NSString *)sg_stringMDWord
+{
+    if ([NSLocale sg_isChinese]) {
+        return [self sg_stringWithFormat:@"M月d日"];
+    } else {
+        return [self sg_stringWithFormat:@"MMM d"];
+    }
+
+}
+
+-(NSString *)sg_stringYYYYMMDDWord
+{
+    if ([NSLocale sg_isChinese]) {
+        return [self sg_stringWithFormat:@"yyyy年MM月dd日"];
+    } else {
+        return [self sg_stringWithFormat:@"MMM d, yyyy"];
+    }
+
+
+}
 
 -(NSString *)sg_stringHHcolonMM
 {

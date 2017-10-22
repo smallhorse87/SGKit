@@ -159,10 +159,9 @@
 -(NSString *)sg_stringMMslashDD;
 -(NSString *)sg_stringMMminusDD;
 -(NSString *)sg_stringMslashD;
-//stony
-//-(NSString *)sg_stringMMDDWord;
-//-(NSString *)sg_stringMDWord;
-//-(NSString *)sg_stringYYYYMMDDWord;
+-(NSString *)sg_stringMMDDWord;
+-(NSString *)sg_stringMDWord;
+-(NSString *)sg_stringYYYYMMDDWord;
 -(NSString *)sg_stringFullTime;
 -(NSString *)sg_stringYYYYminusM;
 -(NSString *)sg_stringYYYYminusMminusD;
