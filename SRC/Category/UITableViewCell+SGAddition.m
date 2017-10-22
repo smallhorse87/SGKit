@@ -10,6 +10,8 @@
 
 #import "SGKitMarco.h"
 
+#import "UIColor+SGAddition.h"
+
 @implementation UITableViewCell (SGAddition)
 
 + (UITableViewCell*)sg_buildSeparatorCell
@@ -17,7 +19,7 @@
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     
     cell.selectionStyle  = UITableViewCellSelectionStyleNone;
-    //cell.backgroundColor = kColorBgPage;//stony debug
+    cell.backgroundColor = [UIColor sg_colorWithHexString:@"0xf5f5f5"];
 
     [cell sg_noSeparator];
 
