@@ -10,7 +10,7 @@
 
 @interface UITableViewCell (SGAddition)
 
-//- (void)sg_noSeparator;
+- (void)sg_noSeparator;
 - (void)sg_separatorZeroInset;
 - (void)sg_separatorInset08;
 - (void)sg_separatorInset10;
@@ -18,6 +18,6 @@
 - (void)sg_separatorInset15;
 - (void)sg_separatorInsetBothSide;
 
-+ (UITableViewCell*)buildSeparatorCell;
++ (UITableViewCell*)sg_buildSeparatorCell;
 
 @end

@@ -8,6 +8,8 @@
 
 #import "UITableView+SGAddition.h"
 
+#import "SGKitMarco.h"
+
 @implementation UITableView (SGAddition)
 
 - (void)sg_reloadRowAtIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)animation {
@@ -19,11 +21,10 @@
     [self sg_reloadRowAtIndexPath:toReload withRowAnimation:animation];
 }
 
-//stony debug
-//- (void)cxs_noSeparator
-//{
-//    [self cxs_separatorInset:kScreenWidth];
-//}
+- (void)sg_noSeparator
+{
+    [self sg_separatorInset:kScreenWidth];
+}
 
 #pragma mark - utility
 

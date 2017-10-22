@@ -12,8 +12,7 @@
 
 - (void)sg_reloadRow:(NSUInteger)row inSection:(NSUInteger)section withRowAnimation:(UITableViewRowAnimation)animation;
 
-//stony
-//- (void)sg_noSeparator;
+- (void)sg_noSeparator;
 
 - (void)sg_disableFollowReadableWidth;
 

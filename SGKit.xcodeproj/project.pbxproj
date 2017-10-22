@@ -69,6 +69,7 @@
 		81A4F3271F9C1D540019DC8E /* UIImage+RTTint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RTTint.h"; sourceTree = "<group>"; };
 		81A4F3281F9C1D540019DC8E /* UIImage+SGAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SGAddition.m"; sourceTree = "<group>"; };
 		81A4F3291F9C1D550019DC8E /* UIColor+SGAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SGAddition.h"; sourceTree = "<group>"; };
+		81A4F3391F9C39650019DC8E /* SGKitMarco.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGKitMarco.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				81A4F3071F9C174D0019DC8E /* Category */,
+				81A4F3391F9C39650019DC8E /* SGKitMarco.h */,
 			);
 			path = SRC;
 			sourceTree = "<group>";

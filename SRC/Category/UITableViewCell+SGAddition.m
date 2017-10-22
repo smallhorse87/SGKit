@@ -8,6 +8,8 @@
 
 #import "UITableViewCell+SGAddition.h"
 
+#import "SGKitMarco.h"
+
 @implementation UITableViewCell (SGAddition)
 
 + (UITableViewCell*)sg_buildSeparatorCell
@@ -17,16 +19,15 @@
     cell.selectionStyle  = UITableViewCellSelectionStyleNone;
     //cell.backgroundColor = kColorBgPage;//stony debug
 
-    //[cell sg_noSeparator];//stony
-    
+    [cell sg_noSeparator];
+
     return cell;
 }
 
-//stony debug
-//- (void)cxs_noSeparator
-//{
-//    [self cxs_separatorInset:kScreenWidth];
-//}
+- (void)sg_noSeparator
+{
+    [self sg_separatorInset:kScreenWidth];
+}
 
 - (void)sg_separatorInsetBothSide
 {
