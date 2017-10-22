@@ -1,0 +1,17 @@
+PODS:
+  - SDWebImage (4.1.2):
+    - SDWebImage/Core (= 4.1.2)
+  - SDWebImage/Core (4.1.2)
+  - WPAttributedMarkup (1.0.0)
+
+DEPENDENCIES:
+  - SDWebImage
+  - WPAttributedMarkup
+
+SPEC CHECKSUMS:
+  SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
+  WPAttributedMarkup: eb50878af4ec647d8d2090f721a5cfe7d29c27fe
+
+PODFILE CHECKSUM: 6c5aafb5d2bba243769975c087bede13a9c1bb10
+
+COCOAPODS: 1.1.1
