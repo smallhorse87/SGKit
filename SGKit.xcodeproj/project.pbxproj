@@ -29,6 +29,7 @@
 		81A4F3381F9C1D550019DC8E /* UIImage+SGAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A4F3281F9C1D540019DC8E /* UIImage+SGAddition.m */; };
 		81A4F33B1F9C3C700019DC8E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 81A4F33A1F9C3C6F0019DC8E /* Podfile */; };
 		81A4F33E1F9C453D0019DC8E /* NSLocale+SGAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A4F33D1F9C453D0019DC8E /* NSLocale+SGAddition.m */; };
+		81D9D9D21FA218AB00E8EE8B /* SGKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 81D9D9D11FA218AA00E8EE8B /* SGKit.podspec */; };
 		837FCBA09DF0FBCFB67D981F /* libPods-SGKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B86CA6F4F32074732472F6F0 /* libPods-SGKit.a */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,7 @@
 		81A4F33A1F9C3C6F0019DC8E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		81A4F33C1F9C453D0019DC8E /* NSLocale+SGAddition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSLocale+SGAddition.h"; sourceTree = "<group>"; };
 		81A4F33D1F9C453D0019DC8E /* NSLocale+SGAddition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSLocale+SGAddition.m"; sourceTree = "<group>"; };
+		81D9D9D11FA218AA00E8EE8B /* SGKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SGKit.podspec; sourceTree = "<group>"; };
 		8B301A09D7A0C0E213562575 /* Pods-SGKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SGKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SGKit/Pods-SGKit.debug.xcconfig"; sourceTree = "<group>"; };
 		B86CA6F4F32074732472F6F0 /* libPods-SGKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SGKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -105,6 +107,7 @@
 		8131EACE1F9AF05000F8818D = {
 			isa = PBXGroup;
 			children = (
+				81D9D9D11FA218AA00E8EE8B /* SGKit.podspec */,
 				81A4F33A1F9C3C6F0019DC8E /* Podfile */,
 				81A4F3061F9C17320019DC8E /* SRC */,
 				8131EAD91F9AF05000F8818D /* SGKit */,
@@ -256,6 +259,7 @@
 			files = (
 				8131EAE71F9AF05000F8818D /* LaunchScreen.storyboard in Resources */,
 				8131EAE41F9AF05000F8818D /* Assets.xcassets in Resources */,
+				81D9D9D21FA218AB00E8EE8B /* SGKit.podspec in Resources */,
 				81A4F33B1F9C3C700019DC8E /* Podfile in Resources */,
 				8131EAE21F9AF05000F8818D /* Main.storyboard in Resources */,
 			);
